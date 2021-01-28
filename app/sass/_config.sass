@@ -2,9 +2,12 @@
 
 $accent: #FFA25C // Accent Color
 $accentLinearGradient: linear-gradient(180deg, #FFC87A 0%, #FF9E59 100%) // Accent Linear Gradient
+$btnGradient: linear-gradient(180deg, #FFC87A 0%, #FF9E59 100%) // Theme Button Gradient
 $bgColor: #0A0A0A // Main Background Color
+$gray: #A3A3A3 // Gray Color
 $fontsize: 16px // Body Font Size
 $textcolor: #ffffff // Text Color
+$trs: all .5s ease // Basic transition
 $system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
 $gilroy: Gilroy, sans-serif // Roboto Font Family
 
@@ -39,11 +42,11 @@ $gutter: $grid-gutter-width
 // GENERAL DOCUMENT STYLES
 
 ::placeholder
-	color: #666
+	color: #C0C0C0
 
 ::selection
 	background-color: $accent
-	color: #fff
+	color: #C0C0C0
 
 input, textarea
 	outline: none
@@ -61,3 +64,34 @@ body
 	overflow-x: hidden
 	color: $textcolor
 	background: $bgColor
+
+.container
+	max-width: 1142px
+
+.theme-btn
+	position: relative
+	background: $btnGradient
+	border: none
+	border-radius: 6px
+	box-shadow: 0px 20px 60px rgba(255, 181, 76, 0.35)
+	padding: 26px 60px
+	color: $textcolor
+	font-weight: 700
+	line-height: 19px
+	transition: background .6s ease
+	&::after
+		content: ''
+		position: absolute
+		bottom: -5px
+		left: 0
+		height: 10px
+		width: 100%
+		background: #F27715
+		border-bottom-left-radius: 6px
+		border-bottom-right-radius: 6px
+		z-index: -1
+	&:hover
+		background: linear-gradient(180deg, #FFE7C4 0%, #FFA564 100%)
+
+
+

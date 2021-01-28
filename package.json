@@ -25,5 +25,8 @@
 		"gulp-uglify-es": "^2.0.0",
 		"gulp-webp": "^4.0.1",
 		"gulp-webp-css": "^1.1.0"
+	},
+	"dependencies": {
+		"imask": "^6.0.5"
 	}
 }
