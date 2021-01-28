@@ -1,10 +1,12 @@
 // USER VARIABLES SECTION
 
-$accent: orange // Accent Color
+$accent: #FFA25C // Accent Color
+$accentLinearGradient: linear-gradient(180deg, #FFC87A 0%, #FF9E59 100%) // Accent Linear Gradient
+$bgColor: #0A0A0A // Main Background Color
 $fontsize: 16px // Body Font Size
-$textcolor: #333 // Text Color
+$textcolor: #ffffff // Text Color
 $system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
-$roboto: Roboto, sans-serif // Roboto Font Family
+$gilroy: Gilroy, sans-serif // Roboto Font Family
 
 // Bootstrap compatible gutter variable => $gutter
 $grid-gutter-width: 30px
@@ -27,10 +29,12 @@ $gutter: $grid-gutter-width
 		// font-display: swap // Uncomment to initially display system fonts
 		src: local($fname), url($furl) format('woff2')
 
-@include font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2')
-@include font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2')
-@include font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2')
-@include font('Roboto', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+@include font('Gilroy', normal, 400, '../fonts/GilroyRegular.woff2')
+@include font('Gilroy', normal, 500, '../fonts/GilroyMedium.woff2')
+@include font('Gilroy', normal, 600, '../fonts/GilroySemiBold.woff2')
+@include font('Gilroy', normal, 700, '../fonts/GilroyBold.woff2')
+@include font('Gilroy', normal, 800, '../fonts/GilroyBlack.woff2')
+@include font('Gilroy', normal, 900, '../fonts/GilroyExtraBold.woff2')
 
 // GENERAL DOCUMENT STYLES
 
@@ -49,10 +53,11 @@ input, textarea
 		border-color: green
 
 body
-	font-family: $roboto
+	font-family: $gilroy
 	font-size: $fontsize
 	min-width: 320px
 	position: relative
 	line-height: 1.65
 	overflow-x: hidden
 	color: $textcolor
+	background: $bgColor
