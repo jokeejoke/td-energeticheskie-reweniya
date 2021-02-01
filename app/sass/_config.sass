@@ -20,6 +20,9 @@ $gutter: $grid-gutter-width
 @import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
 @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
 @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+@import 'node_modules/swiper/swiper-bundle.min'
+@import 'node_modules/slick-carousel/slick/slick.scss'
+@import 'node_modules/magnific-popup/dist/magnific-popup'
 // @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
 
 // FONTS LOAD SECTION
@@ -45,7 +48,7 @@ $gutter: $grid-gutter-width
 	color: #C0C0C0
 
 ::selection
-	background-color: $accent
+	background-color: $textcolor
 	color: #C0C0C0
 
 input, textarea
@@ -70,15 +73,19 @@ body
 
 .theme-btn
 	position: relative
+	overflow: hidden
 	background: $btnGradient
 	border: none
 	border-radius: 6px
 	box-shadow: 0px 20px 60px rgba(255, 181, 76, 0.35)
-	padding: 26px 60px
+	padding: 25px 60px
 	color: $textcolor
 	font-weight: 700
 	line-height: 19px
 	transition: background .6s ease
+	z-index: 1
+	+media-breakpoint-down(md)
+		font-size: 15px
 	&::after
 		content: ''
 		position: absolute
@@ -90,8 +97,51 @@ body
 		border-bottom-left-radius: 6px
 		border-bottom-right-radius: 6px
 		z-index: -1
-	&:hover
+	&::before
+		content: ''
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 100%
+		height: 0
 		background: linear-gradient(180deg, #FFE7C4 0%, #FFA564 100%)
+		z-index: -1
+		transition: $trs
+		border-radius: 50% 50% 0 0
+	&:hover
+		color: $textcolor
+		text-decoration: none
+		&::before
+			height: 180%
+
+h1.section-title
+	position: relative
+	font-size: 72px
+	color: $textcolor
+	line-height: 83px
+	+media-breakpoint-down(md)
+		font-size: 48px
+		line-height: 62px
+	+media-breakpoint-down(sm)
+		font-size: 36px
+		line-height: 42px
+
+h2.section-title
+	position: relative
+	font-weight: 900
+	font-size: 40px
+	line-height: 50px
+	color: $textcolor
+	margin-top: 36px
+	max-width: 622px
+	z-index: 2
+	+media-breakpoint-down(sm)
+		font-size: 24px
+		line-height: 30px
+		margin-top: 20px
+		margin-bottom: 30px
+
+
 
 
 
