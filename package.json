@@ -31,6 +31,7 @@
 		"imask": "^6.0.5",
 		"jquery": "^3.5.1",
 		"magnific-popup": "^1.1.0",
+		"readmore-js": "^2.2.1",
 		"slick-carousel": "^1.8.1",
 		"swiper": "^6.4.10"
 	}

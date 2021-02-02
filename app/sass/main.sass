@@ -400,6 +400,8 @@ p.description
   +media-breakpoint-down(md)
     max-width: 370px
     margin: 0 auto
+  +media-breakpoint-down(xs)
+    padding: 35px 20px
   .theme-btn
     width: 100%
   &__title
@@ -828,7 +830,9 @@ p.description
 .certificates
   position: relative
   +media-breakpoint-down(lg)
-    padding-bottom: 50px
+    padding-bottom: 25px
+  +media-breakpoint-down(xs)
+    padding-bottom: 20px
   .post-title
     margin-top: 70px
     +media-breakpoint-down(lg)
@@ -917,40 +921,47 @@ p.description
     height: 2px !important
     .swiper-scrollbar-drag
       background: #FFA25C
-  &__next
-    right: -64px
-    +media-breakpoint-down(lg)
-      right: 7px
+
+.slider__next
+  right: -64px
+  +media-breakpoint-down(lg)
+    right: 7px
+  +media-breakpoint-down(xs)
+    right: 0
+.slider__prev
+  left: -64px
+  +media-breakpoint-down(lg)
+    left: 7px
+  +media-breakpoint-down(xs)
+    left: 0
+.slider__next,
+.slider__prev
+  position: absolute
+  top: 147px
+  border: none
+  background: transparent
+  +media-breakpoint-down(lg)
+    top: unset
+    bottom: -17px
+  &:active,
+  &:focus
+    outline: none
+  svg
+    width: 40px
+    height: 40px
     +media-breakpoint-down(xs)
-      right: 0
-  &__prev
-    left: -64px
-    +media-breakpoint-down(lg)
-      left: 7px
-    +media-breakpoint-down(xs)
-      left: 0
-  &__next,
-  &__prev
-    position: absolute
-    top: 147px
-    border: none
-    background: transparent
-    +media-breakpoint-down(lg)
-      top: unset
-      bottom: -17px
-    &:active,
-    &:focus
-      outline: none
+      width: 30px
+      height: 30px
 
 .progress
   display: block
-  width: 100%
+  width: 50%
   height: 2px
   overflow: hidden
   background-color: #161616
   background-image: linear-gradient(to right, #FFC87A, #FF9E59)
   background-repeat: no-repeat
-  background-size: 10% 100%
+  background-size: 5% 100%
   transition: background-size .4s ease-in-out
   +media-breakpoint-down(lg)
     width: 80%
@@ -967,5 +978,458 @@ p.description
   clip: rect(0,0,0,0)
   border: none
 
+.mfp-counter
+  display: none
+.mfp-arrow-gallery-left,
+.mfp-arrow-gallery-right
+  border: none
+  background: transparent
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+.mfp-arrow-gallery-left
+  left: 20%
+  +media-breakpoint-down(lg)
+    left: 10%
+  +media-breakpoint-down(sm)
+    left: -5px
+.mfp-arrow-gallery-right
+  right: 20%
+  +media-breakpoint-down(lg)
+    right: 10%
+  +media-breakpoint-down(sm)
+    right: -5px
 
+.mfp-arrow-gallery-left::after,
+.mfp-arrow-gallery-right::after
+  content: ''
+  width: 40px
+  height: 40px
+  background-image: url(../images/dest/svg/gallery-arrow.svg)
+  background-size: contain
+  display: block
+.mfp-arrow-gallery-right::after
+  transform: rotate(180deg)
 
+.mfp-image-holder .mfp-content
+  +media-breakpoint-down(lg)
+    max-width: 80%
+  +media-breakpoint-down(sm)
+    max-width: 70%
+
+.partners
+  position: relative
+  +media-breakpoint-down(lg)
+    padding-bottom: 25px
+  .post-title
+    margin-top: 60px
+    +media-breakpoint-down(lg)
+      margin-top: 45px
+    +media-breakpoint-down(xs)
+      margin-top: 20px
+  .progress
+    display: none
+    margin-top: 30px
+    +media-breakpoint-down(md)
+      display: block
+  .slider__prev,
+  .slider__next
+    display: none !important
+    +media-breakpoint-down(md)
+      display: inline-block !important
+
+.partners-slider
+  position: relative
+  margin: 73px -20px 0 -20px
+  +media-breakpoint-down(xs)
+    margin: 40px -20px 0 -20px
+  &__row
+    max-width: 255px
+    height: auto
+    margin: 0 20px
+    +media-breakpoint-down(md)
+      max-width: 100%
+    &:active,
+    &:focus
+      outline: none
+  &__img
+    max-height: 90px
+    margin-bottom: 40px
+    display: flex
+    justify-content: center
+    align-items: center
+    filter: grayscale(100%)
+    +media-breakpoint-down(sm)
+      max-height: 70px
+    +media-breakpoint-down(xs)
+      max-height: 50px
+    img
+      max-width: 100%
+      min-height: 100%
+      height: 90px
+      +media-breakpoint-down(sm)
+        height: 70px
+      +media-breakpoint-down(xs)
+        height: 50px
+
+.projects
+  position: relative
+  +media-breakpoint-down(lg)
+    padding-bottom: 25px
+  .post-title
+    margin-top: 25px
+.projects-slider
+  position: relative
+  &__title
+    display: block
+    margin: 36px 0 69px 0
+    font-size: 36px
+    line-height: 50px
+    color: $textcolor
+    font-weight: 700
+    +media-breakpoint-down(sm)
+      font-size: 24px
+      line-height: 30px
+      margin-top: 20px
+      margin-bottom: 30px
+    &:focus,
+    &:active
+      outline: none
+    &:hover
+      color: $textcolor
+      text-decoration: none
+    .section-title
+      max-width: 100%
+  &__item
+    position: relative
+    padding-bottom: 50px
+    +media-breakpoint-down(sm)
+      display: none
+    &:first-child
+      +media-breakpoint-down(sm)
+        display: block
+    +media-breakpoint-down(sm)
+      padding-bottom: 40px
+    &:active,
+    &:focus
+      outline: none
+  &__img
+    width: 100%
+    height: 520px
+    +media-breakpoint-down(md)
+      height: 470px
+    +media-breakpoint-down(sm)
+      height: 462px
+    +media-breakpoint-down(xs)
+      height: 214px
+    img
+      max-width: 100%
+      min-height: 100%
+      height: auto
+      object-fit: cover
+      border-radius: 6px
+      +media-breakpoint-down(sm)
+        width: 100%
+        max-height: 100%
+  &__text
+    font-weight: 500
+    max-width: 490px
+    min-height: 422px
+    padding-left: 31px
+    line-height: 25px
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1)
+    &.active
+      max-height: 100%
+      overflow: visible
+      transition: max-height 1s ease-in-out
+    +media-breakpoint-down(sm)
+      padding-left: 0
+      padding-top: 40px
+      max-width: 100%
+      min-height: 100%
+    +media-breakpoint-down(xs)
+      max-height: 260px
+      overflow: hidden
+    ul
+      margin: 0 0 25px 0
+      padding: 0
+      list-style: none
+    p
+      margin-bottom: 25px
+  &__btn
+    margin-left: 31px
+    margin-top: 7px
+    display: inline-block
+    padding: 26px 36px
+    box-shadow: none
+    +media-breakpoint-down(sm)
+      margin-left: 0
+  &__information
+    .projects-slider__btn
+      +media-breakpoint-down(sm)
+        display: none
+  &__mobile
+    margin-top: 70px
+    text-align: center
+    display: none
+    +media-breakpoint-down(sm)
+      display: block
+    +media-breakpoint-down(xs)
+      margin-top: 40px
+
+.projects-thumbs
+  position: relative
+  margin: 0 -12px
+  +media-breakpoint-down(xs)
+    display: none
+  .slick-list
+    padding-top: 35px
+  &__item
+    margin: 0 12px
+    cursor: pointer
+    transition: $trs
+    &:active,
+    &:focus
+      outline: none
+    &:hover
+      transform: translateY(-20px)
+      .projects-thumbs__img
+        &::after
+          background: rgba(242, 143, 72, 0.65)
+  &__img
+    position: relative
+    height: 203px
+    overflow: hidden
+    +media-breakpoint-down(sm)
+      max-height: 189px
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background: rgba(10, 10, 10, 0.65)
+      border-radius: 6px
+      transition: $trs
+    img
+      height: 203px
+      max-width: 100%
+      width: 100%
+      object-fit: cover
+      border-radius: 6px
+      +media-breakpoint-down(sm)
+        max-height: 189px
+  &__title
+    font-size: 24px
+    line-height: 35px
+    font-weight: 700
+    margin-top: 30px
+  &__prev,
+  &__next
+    top: unset
+    bottom: 243px
+    +media-breakpoint-down(lg)
+      bottom: -17px
+    +media-breakpoint-down(xs)
+      display: none !important
+  &__progress
+    margin-top: 60px
+    +media-breakpoint-down(lg)
+      margin-top: 30px
+    +media-breakpoint-down(xs)
+      display: none
+
+.readmore
+  position: absolute
+  bottom: -40px
+  left: 15px
+  font-size: 14px
+  line-height: 22px
+  color: $textcolor
+  border-bottom: 1px dashed $textcolor
+  display: none
+  +media-breakpoint-down(xs)
+    display: block
+  &:hover
+    color: $textcolor
+    text-decoration: none
+  &:active,
+  &:focus
+    outline: none
+
+.news
+  position: relative
+  +media-breakpoint-down(lg)
+    padding-bottom: 30px
+  +media-breakpoint-down(xs)
+    padding-top: 10px
+  .post-title
+    margin-top: 70px
+    +media-breakpoint-down(sm)
+      margin-top: 50px
+  .section-title
+    margin-bottom: 40px
+    +media-breakpoint-down(sm)
+      margin-bottom: 17px
+  &-btn
+    text-align: center
+    margin-top: 100px
+    display: none
+    +media-breakpoint-down(sm)
+      display: block
+    .theme-btn
+      box-shadow: none
+
+.news-slider
+  position: relative
+  margin: 0 -18px
+  .slick-list
+    padding-top: 30px
+  &__progress
+    margin-top: 43px
+  &__item
+    position: relative
+    margin: 0 18px
+    &:hover
+      text-decoration: none
+      .news-slider__image
+        img
+          transform: translateY(-20px)
+        &::after
+          opacity: 1
+          transform: translateY(-20px)
+  &__image
+    position: relative
+    img
+      max-width: 100%
+      height: 255px
+      object-fit: cover
+      border-radius: 6px
+      transition: $trs
+      +media-breakpoint-down(md)
+        height: 211px
+        width: 100%
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background: rgba(242, 143, 72, 0.65)
+      border-radius: 6px
+      transition: $trs
+      opacity: 0
+  &__title
+    font-size: 17px
+    line-height: 26px
+    font-weight: 700
+    margin-top: 40px
+    color: $textcolor
+    min-height: 52px
+    +media-breakpoint-down(lg)
+      min-height: 78px
+    +media-breakpoint-down(sm)
+      margin-top: 28px
+    +media-breakpoint-down(xs)
+      min-height: 52px
+  &__date
+    font-weight: 500
+    font-size: 14px
+    line-height: 31px
+    color: #BFBFBF
+    display: block
+    margin-top: 15px
+    +media-breakpoint-down(sm)
+      margin-top: 10px
+
+.all-news
+  display: inline-block
+  color: $textcolor
+  margin-top: 38px
+  transition: $trs
+  &:hover
+    text-decoration: none
+    color: $accent
+  +media-breakpoint-down(sm)
+    display: none
+
+.example
+  height: 100vh
+
+.section-form
+  display: none
+  +media-breakpoint-down(sm)
+    display: block
+
+.contacts
+  position: relative
+  .post-title
+    margin-top: 70px
+    +media-breakpoint-down(sm)
+      margin-top: 40px
+  .section-title
+    margin-bottom: 49px
+  .form
+    margin-top: -132px
+    +media-breakpoint-down(lg)
+      margin-top: -75px
+    +media-breakpoint-down(md)
+      display: none
+  &__item
+    display: flex
+    margin-bottom: 34px
+    +media-breakpoint-down(xs)
+      margin-bottom: 15px
+  &__icon
+    flex: 0 0 40px
+    height: 40px
+    line-height: 40px
+    border-radius: 50%
+    text-align: center
+    background: linear-gradient(180deg, #FFC676 0%, #F28F48 100%)
+    box-shadow: 0px 20px 50px rgba(252, 182, 105, 0.3)
+    margin-right: 20px
+    +media-breakpoint-down(xs)
+      flex: 0 0 34px
+      height: 34px
+      line-height: 34px
+    svg
+      width: 24px
+      height: 24px
+      fill: $textcolor
+      +media-breakpoint-down(xs)
+        width: 20px
+        height: 20px
+  &-list
+    &__item
+      margin-bottom: 40px
+      margin-right: 50px
+      +media-breakpoint-down(xs)
+        margin-bottom: 20px
+    &__title
+      font-weight: 500
+      font-size: 18px
+      line-height: 21px
+      +media-breakpoint-down(xs)
+        font-size: 14px
+        line-height: 16px
+    &__value
+      font-weight: 700
+      font-size: 24px
+      line-height: 29px
+      max-width: 287px
+      margin-top: 15px
+      +media-breakpoint-down(xs)
+        font-size: 16px
+        line-height: 19px
+      a
+        color: $textcolor
+        &:hover
+          text-decoration: none
+          color: $textcolor
+    &__flex
+      display: flex
+      +media-breakpoint-down(sm)
+        flex-direction: column

@@ -5,11 +5,29 @@ document.addEventListener("DOMContentLoaded", function() {
 		$(".preloader").delay(700).fadeOut("slow");
 	});
 
+	$('.readmore').on('click', function(e) {
+		if($(this).prev().hasClass('active')) {
+			$(this).prev().removeClass('active')
+		} else {
+			$(this).prev().addClass('active')
+		}
+		e.preventDefault()
+	})
+
 	// Magnific Popup
 	function popupGallery(selector) {
 		$(selector).magnificPopup({
 			delegate: 'a', // child items selector, by clicking on it popup will open
-			type: 'image'
+			type: 'image',
+			tClose: 'Закрыть',
+			tLoading: 'Загрузка...',
+			gallery: {
+				enabled: true, // set to true to enable gallery
+				navigateByImgClick: true,
+				arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow-gallery mfp-arrow-gallery-%dir%"></button>', // markup of an arrow button
+				tPrev: 'Назад', // title for left button
+				tNext: 'Вперед', // title for right button
+			}
 		});
 	}
 	
@@ -17,26 +35,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// Silders with scrollbar
 
-	var $certificateSlider = $('.certificates-gallery');
-  var $progressBar = $('.progress');
-  var $progressBarLabel = $( '.slider__label' );
-  
-  $certificateSlider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {   
-    var calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
-    
-    $progressBar
-      .css('background-size', calc + 10 + '% 100%')
-      .attr('aria-valuenow', calc );
-    
-    $progressBarLabel.text( calc + '% completed' );
-  });
+	function initScrollBar(sliderSelector, scrollBarSelector) {
+		const $slider = $(sliderSelector);
+		const $progressBar = $(scrollBarSelector);
+		const $progressBarLabel = $( '.slider__label' );
+		
+		$slider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {   
+			let calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
+
+			$progressBar
+				.css('background-size', calc + '% 100%')
+				.attr('aria-valuenow', calc );
+			
+			$progressBarLabel.text( calc + '% completed' );
+		});
+	}
+
+	const $certificateSlider = $('.certificates-gallery');
   
   $certificateSlider.slick({
     slidesToShow: 4,
     slidesToScroll: 1,
 		speed: 400,
-		prevArrow: ".certificates-gallery__prev",
-		nextArrow: ".certificates-gallery__next",
+		prevArrow: ".slider__prev",
+		nextArrow: ".slider__next",
 		responsive: [
 			{
 				breakpoint: 1199,
@@ -51,9 +73,101 @@ document.addEventListener("DOMContentLoaded", function() {
 				}
 			}
 		]
-  });
+	});
+
+
+	// Partners Slider
+	const $partnersSlider = $('.partners-slider');
+	
+	$partnersSlider.slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+		speed: 400,
+		prevArrow: ".partners-slider__prev",
+		nextArrow: ".partners-slider__next",
+		responsive: [
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			}
+		]
+	});
+	
+	// Projects Slider
+	$('.projects-slider').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		asNavFor: '.projects-thumbs',
+		adaptiveHeight: true,
+		responsive: [
+			{
+				breakpoint: 576,
+				settings: {
+					//autoplay: true,
+  				//autoplaySpeed: 3000,
+				}
+			}
+		]
+	});
+	$('.projects-thumbs').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		prevArrow: ".projects-thumbs__prev",
+		nextArrow: ".projects-thumbs__next",
+		asNavFor: '.projects-slider',
+		focusOnSelect: true,
+		responsive: [
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			}
+		]
+	});
 
 	//End Silders with scrollbar
+
+	// News Slider
+	const $newsSlider = $('.news-slider');
+	
+	$newsSlider.slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+		speed: 400,
+		prevArrow: ".news-slider__prev",
+		nextArrow: ".news-slider__next",
+		responsive: [
+			{
+				breakpoint: 991,
+				settings: {
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			},
+			{
+				breakpoint: 576,
+				settings: {
+					slidesToShow: 1
+				}
+			}
+		]
+	});
 
 
 
@@ -129,10 +243,18 @@ document.addEventListener("DOMContentLoaded", function() {
 		tl.from('.home .main .main__btn', { opacity: 0, duration: 1}, '-=1.5')
 	}
 
+	if(window.innerWidth < 576) {
+		$('.projects-slider').slick('unslick');
+	}
+
 	dropdownHover()
 	hamburgerMenu()
 	showPhones()
 	basicAnimation()
+	initScrollBar('.certificates-gallery', '.certificates-gallery__progress')
+	initScrollBar('.partners-slider', '.partners-slider__progress')
+	initScrollBar('.projects-thumbs', '.projects-thumbs__progress')
+	initScrollBar('.news-slider', '.news-slider__progress')
 	popupGallery('.certificates-gallery')
 
 });
