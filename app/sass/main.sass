@@ -7,9 +7,29 @@
   height: auto
   width: 100%
   padding: 27px 0 0
-  z-index: 11
+  z-index: 101
+  transition: $trs
   +media-breakpoint-down(sm)
     padding: 25px 0 0
+  &.fixed
+    position: fixed
+    background: #0D0D0D
+    padding: 44px 0
+    transition: none
+    top: -100%
+    transition: $trs
+    z-index: 1001
+    +media-breakpoint-down(sm)
+      padding: 25px 0
+      height: 125px
+    &.add
+      top: 0
+    .header__top
+      display: none
+      +media-breakpoint-down(sm)
+        display: block
+    .navbar
+      margin-top: 0
   &__top
     position: relative
     .location
@@ -57,7 +77,7 @@
       top: 0
       left: 0
       width: 100%
-      height: 100vh
+      height: 105vh
       background: $bgColor
       opacity: 0
       visibility: hidden
@@ -65,10 +85,12 @@
       padding-bottom: 115px
     .navbar
       margin-top: 64px
+      +media-breakpoint-down(md)
+        margin-top: 55px
       +media-breakpoint-down(sm)
         margin-top: 0
         flex-direction: column
-        padding-top: 130px
+        padding-top: 140px
     &.active
       opacity: 1
       visibility: visible
@@ -133,6 +155,7 @@
   top: 0
   left: -5px
   z-index: 101
+  transition: $trs
   +media-breakpoint-down(sm)
     left: -10px
     top: 10px
@@ -234,43 +257,33 @@
   list-style-type: none
   display: flex
   justify-content: space-between
+  transition: $trs
   &__item
     position: relative
+    &.active
+      .dropdown
+        opacity: 1
+        visibility: visible
+        z-index: 2
+      .navbar__link
+        z-index: 3
+        color: $accent
+        svg
+          fill: $accent
     .dropdown
       position: absolute
       top: -21px
       left: -21px
       opacity: 0
       visibility: hidden
-      +media-breakpoint-down(sm)
-        visibility: visible
-        opacity: 1
-        position: relative
-        top: 0
-        left: 0
-        border: none
-        padding: 0
-        background: transparent
       &__item
         +media-breakpoint-down(sm)
           margin-bottom: 10px
         &:last-child
           +media-breakpoint-down(sm)
             margin-bottom: 15px
-    &-child
-      +media-breakpoint-down(sm)
-        a.navbar__link
-          display: none
-      &:hover
-        .navbar__link
-          z-index: 3
-        .dropdown
-          opacity: 1
-          visibility: visible
-          z-index: 2
-      &:first-child
-        &:hover
-          position: unset
+
+
   &__link
     color: $textcolor
     font-weight: 600
@@ -279,15 +292,20 @@
     +media-breakpoint-down(sm)
       display: inline-block
       margin-bottom: 15px
+      transition: none
     &:hover
       color: $accent
       text-decoration: none
+      +media-breakpoint-down(sm)
+        color: $textcolor
+      svg
+        fill: $accent
+        +media-breakpoint-down(sm)
+          fill: $textcolor
     svg
       fill: $textcolor
       margin-left: 10px
       transition: $trs
-      +media-breakpoint-down(sm)
-        display: none
   
 
 .dropdown
@@ -518,6 +536,7 @@ p.description
   display: none
   z-index: 101
   overflow: hidden
+  transition: $trs
   +media-breakpoint-down(sm)
     display: flex
   &__menu
@@ -1365,6 +1384,12 @@ p.description
 
 .contacts
   position: relative
+  padding-bottom: 50px
+  +media-breakpoint-down(md)
+    padding-bottom: 0
+  &.no-home
+    +media-breakpoint-down(md)
+      display: none
   .post-title
     margin-top: 70px
     +media-breakpoint-down(sm)
@@ -1433,3 +1458,516 @@ p.description
       display: flex
       +media-breakpoint-down(sm)
         flex-direction: column
+
+.footer
+  position: relative
+  padding-top: 55px
+  padding-bottom: 70px
+  +media-breakpoint-down(md)
+    padding-top: 30px
+    padding-bottom: 30px
+  .political-policy
+    position: absolute
+    top: 50%
+    left: 15px
+  .copyright
+    position: absolute
+    left: 15px
+    bottom: 8px
+  .logotype
+    z-index: 1
+    img
+      max-width: 150px
+  &__nav
+    height: 100%
+    margin-left: 65px
+    +media-breakpoint-down(lg)
+      margin-left: 0
+    +media-breakpoint-down(sm)
+      margin-top: 35px
+    .navbar
+      flex-direction: column
+      position: relative
+      max-height: 210px
+      flex-wrap: wrap
+      height: 100%
+      justify-content: flex-start
+      +media-breakpoint-down(sm)
+        max-height: 100%
+      &__item
+        margin-bottom: 25px
+        +media-breakpoint-down(sm)
+          margin-bottom: 0
+          text-align: right
+        &:nth-child(4n+4)
+          margin-bottom: 0
+          +media-breakpoint-down(sm)
+            margin-bottom: 0
+        .dropdown
+          +media-breakpoint-down(sm)
+            right: -21px
+            left: unset
+      &__link
+        line-height: 19px
+        font-weight: 500
+        +media-breakpoint-down(sm)
+          margin-bottom: 10px
+
+
+
+  &__contacts
+    display: flex
+    margin-left: -25px
+    height: 100%
+    padding-top: 5px
+    +media-breakpoint-down(lg)
+      margin-left: -70px
+    +media-breakpoint-down(md)
+      display: none
+    .contacts__item
+      width: 100%
+      margin-right: 22px
+      margin-bottom: 0
+      &:last-child
+        margin-right: 0
+        flex: 0 0 43%
+    .contacts-list
+      position: relative
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      &__item
+        margin-right: 0
+        margin-bottom: 20px
+        &:last-child
+          margin-bottom: 0
+      &__title
+        font-size: 14px
+        line-height: 16px
+      &__value
+        font-size: 16px
+        line-height: 19px
+        margin-top: 10px
+        max-width: 100%
+    .contacts-list__flex
+      flex-direction: column
+
+.political-policy
+  font-size: 12px
+  border-bottom: 1px dashed rgba(191, 191, 191, 0.5)
+  line-height: 15px
+  color: $textcolor
+  transition: $trs
+  +media-breakpoint-down(sm)
+    text-align: center
+  &:hover
+    border-bottom: none
+    color: $accent
+    text-decoration: none
+
+.copyright
+  color: #BFBFBF
+  font-weight: 500
+  font-size: 14px
+  line-height: 22px
+
+.toTop
+  position: fixed
+  bottom: 85px
+  right: -100px
+  background: #1E1E1E
+  border: 1px solid #D8D8D8
+  width: 50px
+  height: 50px
+  line-height: 50px
+  text-align: center
+  border-radius: 50%
+  cursor: pointer
+  z-index: 103
+  opacity: 0.6
+  transition: $trs
+  display: none
+  +media-breakpoint-down(sm)
+    display: block
+  &:hover
+    opacity: 1
+  &.active
+    right: 30px
+  svg
+    width: 21px
+    height: 21px
+
+.error
+  position: relative
+  padding-top: 63px
+  padding-bottom: 50px
+  +media-breakpoint-down(lg)
+    padding-top: 87px
+    padding-bottom: 100px
+  +media-breakpoint-down(sm)
+    padding-top: 65px
+    padding-bottom: 60px
+    overflow: hidden
+  .section-title
+    margin: 24px 0 42px
+    font-size: 64px
+    line-height: 74px
+    +media-breakpoint-down(lg)
+      margin: 30px 0
+      font-size: 48px
+      line-height: 55px
+    +media-breakpoint-down(xs)
+      margin: 30px 0 40px
+      font-size: 36px
+      line-height: 42px
+  .description
+    +media-breakpoint-down(xs)
+      font-size: 14px
+      line-height: 22px
+  &__image
+    margin-left: -105px
+    +media-breakpoint-down(lg)
+      margin-top: 45px
+    +media-breakpoint-down(md)
+      margin-left: 0
+      margin-top: 75px
+    +media-breakpoint-down(sm)
+      margin-top: 0
+      position: absolute
+      top: -245px
+      right: 0
+      text-align: right
+      z-index: -1
+    img
+      max-width: 804px
+      height: auto
+      +media-breakpoint-down(lg)
+        max-width: 100%
+      +media-breakpoint-down(sm)
+        max-width: 70%
+  &__btn
+    display: inline-block
+    margin-top: 48px
+    border: 1px solid $accent
+    color: $accent
+    line-height: 17px
+    padding: 25px 46px
+    border-radius: 6px
+    filter: drop-shadow(0px 20px 60px rgba(255, 181, 76, 0.35))
+    transition: $trs
+    +media-breakpoint-down(sm)
+      margin-top: 80px
+    +media-breakpoint-down(xs)
+      width: 100%
+      text-align: center
+    &:hover
+      text-decoration: none
+      color: $textcolor
+      background: $accent
+  &__light
+    position: absolute
+    top: -80px
+    width: 434px
+    height: 434px
+    background: #FFA25C
+    opacity: 0.4
+    border-radius: 50%
+    filter: blur(500px)
+    +media-breakpoint-down(md)
+      width: 329px
+      height: 329px
+      top: -40px
+    +media-breakpoint-down(sm)
+      display: none
+  &__text
+    font-size: 14px
+    line-height: 16px
+    color: #ABABAB
+    margin-top: 77px
+    +media-breakpoint-down(lg)
+      margin-top: 60px
+    a
+      color: $accent
+      border-bottom: 1px dashed $accent
+      &:hover
+        color: $accent
+        text-decoration: none
+        border-bottom: none
+
+.breadcrumb
+  position: relative
+  margin: 37px 0 42px
+  display: block
+  +media-breakpoint-down(xs)
+    margin: 30px 0
+  &__nav
+    margin: 0
+    padding: 0
+    list-style: none
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+  &__item
+    color: #818181
+    font-weight: 500
+    font-size: 12px
+    line-height: 17px
+    margin-right: 13px
+    position: relative
+    &::after
+      content: '-'
+      position: absolute
+      top: 0
+      right: -9px
+      display: block
+      color: #818181
+    &.active
+      color: $accent
+    &:last-child
+      &::after
+        display: none
+  &__link
+    color: #818181
+    &:hover
+      color: #818181
+
+.inner-catalog
+  position: relative
+  padding-bottom: 25px
+  +media-breakpoint-down(sm)
+    padding-bottom: 0
+  &-slider-nav
+    +media-breakpoint-down(sm)
+      display: none
+    .slick-track
+      width: 100% !important
+      transform: none !important
+      +media-breakpoint-down(md)
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+      +media-breakpoint-down(sm)
+        display: none
+      &::before,
+      &::after
+        display: none
+  &-nav
+    position: relative
+    +media-breakpoint-down(md)
+      margin-bottom: 20px
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+    &-mobile
+      display: none
+      +media-breakpoint-down(sm)
+        display: flex
+        margin-bottom: 0
+    &.no-main-catalog
+      +media-breakpoint-down(xs)
+        display: none
+    &__item
+      width: 100% !important
+      color: #BFBFBF
+      padding-left: 30px
+      padding-right: 42px
+      font-size: 14px
+      line-height: 19px
+      background: #1E1E1E
+      margin-bottom: 20px
+      border-radius: 6px
+      height: 70px
+      display: flex !important
+      border: 1px solid #1E1E1E
+      align-items: center
+      transition: $trs
+      cursor: pointer
+      +media-breakpoint-down(lg)
+        padding-left: 18px
+        padding-right: 18px
+      +media-breakpoint-down(md)
+        width: 48% !important
+      +media-breakpoint-down(xs)
+        padding-left: 40px
+        width: 100% !important
+      &:active,
+      &:focus
+        outline: none
+      &.active
+        border: 1px solid $accent
+        color: $accent
+        text-decoration: none
+      &:last-child
+        margin-bottom: 0
+      &:hover
+        border: 1px solid $accent
+        color: $accent
+        text-decoration: none
+  &__back-btn
+    border: none
+    background: transparent
+    color: #818181
+    font-size: 14px
+    line-height: 19px
+    font-weight: 500
+    margin-bottom: 30px
+    transition: $trs
+    +media-breakpoint-down(md)
+      display: none
+    +media-breakpoint-down(xs)
+      display: block
+      margin-bottom: 20px
+    &:hover
+      color: $accent
+      svg
+        fill: $accent
+    svg
+      margin-right: 10px
+      fill: #818181
+      transition: $trs
+    &.mobile
+      display: none
+      margin-bottom: 0
+      margin-top: 30px
+      +media-breakpoint-down(md)
+        display: block
+      +media-breakpoint-down(xs)
+        display: none
+  .form
+    margin-top: 35px
+    display: none
+    +media-breakpoint-down(xs)
+      display: block
+  .error__btn
+    display: none
+    max-width: 370px
+    margin: 50px auto 0
+    +media-breakpoint-down(xs)
+      display: block
+
+.inner-catalog-preview
+  position: relative
+  +media-breakpoint-down(xs)
+    display: none
+  &__item
+    position: relative
+    width: 100%
+    height: 520px
+    background-size: cover
+    background-position: center center
+    border-radius: 6px
+    padding: 59px
+    +media-breakpoint-down(sm)
+      padding: 58px 18px
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background: rgba(10, 10, 10, 0.65)
+  &__title
+    position: relative
+    color: $textcolor
+    z-index: 1
+    font-weight: 700
+    font-size: 36px
+    line-height: 50px
+    max-width: 483px
+    margin-bottom: 40px
+  &__description
+    position: relative
+    z-index: 1
+    color: $textcolor
+    font-size: 14px
+    line-height: 19px
+    max-width: 366px
+  &__btn
+    display: inline-block
+    background: linear-gradient(180deg, #FFC87A 0%, #FF9E59 100%)
+    box-shadow: 0px 20px 60px rgba(255, 181, 76, 0.35)
+    border-radius: 6px
+    color: $textcolor
+    position: relative
+    z-index: 1
+    padding: 26px 77px
+    margin-top: 46px
+    &::after
+      display: none
+    &:hover
+      color: $textcolor
+      text-decoration: none
+
+.inner-catalog-content
+  position: relative
+  background: #1E1E1E
+  border-radius: 6px
+  padding: 58px 60px
+  +media-breakpoint-down(md)
+    padding: 58px 18px
+  +media-breakpoint-down(xs)
+    background: transparent
+    padding: 0
+  &__title
+    font-weight: 700
+    font-size: 36px
+    line-height: 50px
+    max-width: 483px
+    margin-bottom: 33px
+    +media-breakpoint-down(xs)
+      font-size: 24px
+      line-height: 33px
+      max-width: 100%
+      margin-bottom: 25px
+  &-slider
+    position: relative
+    .slick-dots
+      display: none !important
+    &__link
+      display: block
+      color: $textcolor
+      line-height: 22px
+      margin-bottom: 20px
+      transition: $trs
+      +media-breakpoint-down(xs)
+        font-size: 14px
+        line-height: 19px
+      &:hover
+        color: $accent
+        text-decoration: none
+      span
+        color: #ccc
+    &__prev,
+    &__next
+      top: unset
+      left: unset
+      right: 40px
+      bottom: 20px
+      +media-breakpoint-down(xs)
+        display: none
+    &__prev
+      right: 100px
+    &__counter
+      position: absolute
+      bottom: 20px
+      +media-breakpoint-down(xs)
+        display: none
+  p
+    font-weight: 500
+    a
+      color: $accent
+      border-bottom: 1px dashed $accent
+      &:hover
+        border-bottom: none
+        text-decoration: none
+    &.mobile
+      display: none
+      +media-breakpoint-down(xs)
+        display: block
+    &.desktop
+      +media-breakpoint-down(xs)
+        display: none
+
+
+

@@ -33,6 +33,18 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	// End Magnific Popup
 
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > $(this).height()) {
+			$('.toTop').addClass('active')
+		} else {
+			$('.toTop').removeClass('active')
+		}
+	})
+
+	$('.toTop').on('click', function() {
+		$('html, body').stop().animate({ scrollTop: 0}, 'slow', 'swing')
+	})
+
 	// Silders with scrollbar
 
 	function initScrollBar(sliderSelector, scrollBarSelector) {
@@ -169,37 +181,95 @@ document.addEventListener("DOMContentLoaded", function() {
 		]
 	});
 
+	// Inner Catalog Slider
+	$('.inner-catalog-preview').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		asNavFor: '.inner-catalog-slider-nav',
+		adaptiveHeight: true,
+	});
+	$('.inner-catalog-slider-nav').slick({
+		slidesToShow: 5,
+		slidesToScroll: 1,
+		asNavFor: '.inner-catalog-preview',
+		focusOnSelect: true,
+		infinite: false,
+		rtl: true,
+		arrows: false
+	});
+
+	// Inner catalog content slider
+	const $innerCatalogSlider = $('.inner-catalog-content-slider')
+	$innerCatalogSlider.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+		//currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+		if(slick.slideCount <= 2){
+			return;
+		}
+		
+		var i = (currentSlide ? currentSlide : 0) + 1;
+		$('.inner-catalog-content-slider__counter').text(i + '/' + (slick.$dots[0].children.length));
+	});
+	$innerCatalogSlider.slick({
+		slidesToShow: 2,
+		slidesToScroll: 1,
+		adaptiveHeight: true,
+		infinite: false,
+		prevArrow: ".inner-catalog-content-slider__prev",
+		nextArrow: ".inner-catalog-content-slider__next",
+		dots: true,
+		responsive: [
+			{
+				breakpoint: 576,
+				settings: {
+					slidesToShow: 1
+				}
+			}
+		]
+	});
+
+
 
 
 	// Pure JS Function
-	const phoneMask = IMask(
-		document.querySelector('.phone'), {
-			mask: '+{7}(000)000-00-00'
-		});
-
-	function dropdownHover() {
-		$hasChildLink = document.querySelectorAll('.navbar__item-child')
-		$hasChildLink.forEach(el => {
-			el.addEventListener('mouseover', function() {
-				this.childNodes[0].nextElementSibling.style.color = '#ffa25c'
-				this.childNodes[0].nextElementSibling.children[0].style.transform = 'rotate(180deg)'
-				this.childNodes[0].nextElementSibling.children[0].style.fill = '#ffa25c'
-			})
-		});
-		$hasChildLink.forEach(el => {
-			el.addEventListener('mouseout', function() {
-				this.childNodes[0].nextElementSibling.style.color = '#ffffff'
-				this.childNodes[0].nextElementSibling.children[0].style.transform = 'rotate(0)'
-				this.childNodes[0].nextElementSibling.children[0].style.fill = '#ffffff'
-			})
-		});
+	function phoneMask() {
+		const $phoneMask = document.querySelector('.phone')
+		if ($phoneMask) {
+			IMask(
+				$phoneMask, {
+					mask: '+{7}(000)000-00-00'
+			});
+		}
 	}
+
+	function goBack() {
+		$backBtn = document.querySelector('.back-btn')
+		if($backBtn) {
+			$backBtn.addEventListener('click', function() {
+				window.history.back();
+			})
+		}
+	}
+	
+
 
 	if(document.querySelectorAll('.navbar__item-child .navbar__link')) {
 		document.querySelectorAll('.navbar__item-child .navbar__link').forEach(link => {
 			link.addEventListener('click', function(e) {
 				e.preventDefault()
 				return false
+			})
+		})
+	}
+
+
+	function dropdownMenu () {
+		const $dropdownItem = document.querySelectorAll('.navbar__item-child')
+		$dropdownItem.forEach(item => {
+			item.addEventListener('click', function (e) { 
+				this.classList.toggle('active')
+				e.preventDefault()
 			})
 		})
 	}
@@ -228,6 +298,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		})
 	}
 
+	gsap.config({ nullTargetWarn: false })
 	function basicAnimation() {
 		const tl = gsap.timeline({
 			delay: 0.7
@@ -243,18 +314,84 @@ document.addEventListener("DOMContentLoaded", function() {
 		tl.from('.home .main .main__btn', { opacity: 0, duration: 1}, '-=1.5')
 	}
 
-	if(window.innerWidth < 576) {
-		$('.projects-slider').slick('unslick');
+
+	function fixedHeader() {
+		const $mainSection = document.querySelector('section.main')
+
+		if ($mainSection) {
+			const $mainSectionHeight = document.querySelector('section.main').offsetHeight
+			let $header = document.querySelector('.header')
+			let lastScrollTop = 0;
+			window.addEventListener("scroll", function(){
+				var st = window.pageYOffset || document.documentElement.scrollTop; 
+				if (st < lastScrollTop && $mainSectionHeight < lastScrollTop){
+					$header.classList.add('fixed')
+					$header.classList.add('add')
+				} else {
+					if (lastScrollTop < $mainSectionHeight && $header.classList.contains('fixed')) {
+						$header.classList.remove('add')
+						setTimeout(() => {
+							$header.classList.remove('fixed')
+						}, 100)
+					}
+					if (lastScrollTop > $mainSectionHeight) {
+						$header.classList.remove('add')
+					}
+				}
+				lastScrollTop = st <= 0 ? 0 : st; 
+			}, false);
+
+
+		}
+
+		
 	}
 
-	dropdownHover()
+	function mobileFixedHeader() {
+		const $mainSection = document.querySelector('section.main')
+
+		if($mainSection) {
+
+
+			const $mainSectionHeight = document.querySelector('section.main').offsetHeight
+			let $header = document.querySelector('.header')
+			window.addEventListener("scroll", function(){
+				var st = window.pageYOffset || document.documentElement.scrollTop; 
+				if ($mainSectionHeight < st){
+					$header.classList.add('fixed')
+					$header.classList.add('add')
+				} else {
+					$header.classList.remove('add')
+					$header.classList.remove('fixed')
+
+				}
+			}, false);
+
+		}
+	}
+
+	if(window.innerWidth <= 576) {
+		$('.projects-slider').slick('unslick');
+		$('.inner-catalog-content-slider').slick('unslick');
+	}
+	if(window.innerWidth >= 768) {
+		fixedHeader()
+	} else {
+		mobileFixedHeader()
+	}
+
+	
 	hamburgerMenu()
 	showPhones()
+	phoneMask()
+	goBack()
 	basicAnimation()
+	dropdownMenu()
 	initScrollBar('.certificates-gallery', '.certificates-gallery__progress')
 	initScrollBar('.partners-slider', '.partners-slider__progress')
 	initScrollBar('.projects-thumbs', '.projects-thumbs__progress')
 	initScrollBar('.news-slider', '.news-slider__progress')
 	popupGallery('.certificates-gallery')
+	
 
 });
