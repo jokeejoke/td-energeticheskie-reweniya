@@ -412,7 +412,7 @@ p.description
   z-index: 1
   background: $textcolor
   color: $gray
-  padding: 35px 44px 30px
+  padding: 35px 43px 30px
   box-shadow: 5px 10px 25px rgba(171, 171, 171, 0.15)
   border-radius: 6px
   +media-breakpoint-down(md)
@@ -440,6 +440,14 @@ p.description
     font-size: 12px
     font-weight: 600
     line-height: 14px
+  &__button
+    border: none
+    background: transparent
+    position: absolute
+    top: -45px
+    right: -45px
+    +media-breakpoint-down(xs)
+      right: -15px
   &__group
     margin-top: 10px
     &.flex
@@ -645,11 +653,13 @@ p.description
 
 .catalog
   position: relative
-  height: 1370px
+  //height: 1370px
+  height: 1415px
   max-width: 100%
   overflow: hidden
   +media-breakpoint-down(lg)
-    height: 1100px
+    //height: 1100px
+    height: 1125px
   +media-breakpoint-down(sm)
     height: 1110px
   .post-title
@@ -670,12 +680,14 @@ p.description
     position: absolute
     bottom: -210px
     left: 50%
-    box-shadow: none
     transform: translateX(-50%)
+    transition: $trs
     +media-breakpoint-down(lg)
       bottom: -140px
     +media-breakpoint-down(sm)
       bottom: -100px
+    &:hover
+      bottom: -200px
     
 
 @keyframes arrowAnimate
@@ -853,7 +865,8 @@ p.description
   +media-breakpoint-down(xs)
     padding-bottom: 20px
   .post-title
-    margin-top: 70px
+    //margin-top: 70px
+    margin-top: 23px
     +media-breakpoint-down(lg)
       margin-top: 0
   .section-title
@@ -1097,6 +1110,53 @@ p.description
     padding-bottom: 25px
   .post-title
     margin-top: 25px
+  &.detail-projects
+    .projects-slider
+      &__item
+        +media-breakpoint-down(xs)
+          display: block !important
+          opacity: 1 !important
+          z-index: 11 !important
+          margin-bottom: 70px
+          padding-bottom: 0
+      &__mobile
+        +media-breakpoint-down(xs)
+          margin-top: 0
+      &__title
+        margin: 0 0 35px
+        +media-breakpoint-down(sm)
+          font-size: 36px
+          line-height: 50px
+        +media-breakpoint-down(xs)
+          margin: 0 0 20px
+          font-size: 18px
+          line-height: 25px
+      &__text
+        max-width: 100%
+        +media-breakpoint-down(sm)
+          padding-top: 45px
+        +media-breakpoint-down(xs)
+          padding-top: 25px
+        +media-breakpoint-down(xs)
+          font-size: 14px
+          line-height: 22px
+        p
+          +media-breakpoint-down(xs)
+            margin-bottom: 15px
+    .projects-thumbs
+      .slick-list
+        padding-top: 10px
+      &__next,
+      &__prev
+        bottom: 180px
+        +media-breakpoint-down(lg)
+          bottom: -17px
+    .progress
+      display: none
+      +media-breakpoint-down(lg)
+        display: block
+      +media-breakpoint-down(xs)
+        display: none
 .projects-slider
   position: relative
   &__title
@@ -1180,9 +1240,12 @@ p.description
     margin-top: 7px
     display: inline-block
     padding: 26px 36px
-    box-shadow: none
+    box-shadow: 0px 15px 45px rgba(255, 181, 76, 0.35)
+    transition: $trs
     +media-breakpoint-down(sm)
       margin-left: 0
+    &:hover
+      transform: translateY(-10px)
   &__information
     .projects-slider__btn
       +media-breakpoint-down(sm)
@@ -1559,7 +1622,7 @@ p.description
   color: $textcolor
   transition: $trs
   +media-breakpoint-down(sm)
-    text-align: center
+    border-bottom: none
   &:hover
     border-bottom: none
     color: $accent
@@ -1733,7 +1796,7 @@ p.description
 
 .inner-catalog
   position: relative
-  padding-bottom: 25px
+  padding-bottom: 45px
   +media-breakpoint-down(sm)
     padding-bottom: 0
   &-slider-nav
@@ -1924,6 +1987,10 @@ p.description
     position: relative
     .slick-dots
       display: none !important
+    &__item
+      &:active,
+      &:focus
+        outline: none
     &__link
       display: block
       color: $textcolor
@@ -1969,5 +2036,120 @@ p.description
       +media-breakpoint-down(xs)
         display: none
 
+.vertical-catalog
+  position: relative
+  &__title
+    font-weight: 700
+    font-size: 36px
+    line-height: 50px
+    margin-bottom: 40px
+    +media-breakpoint-down(sm)
+      margin-bottom: 20px
+    +media-breakpoint-down(xs)
+      font-size: 24px
+      line-height: 33px
+  &__description
+    line-height: 25px !important
+  &__list
+    position: relative
+    margin-top: 70px
+    display: flex
+    flex-direction: column
+    +media-breakpoint-down(sm)
+      margin-top: 40px
+  &-item
+    position: relative
+    margin-bottom: 100px
+    +media-breakpoint-down(sm)
+      margin-bottom: 50px
+    &:nth-child(even)
+      .row
+        flex-direction: row-reverse
+      .vertical-catalog-item__text
+        padding-left: 0
+      .vertical-catalog-item__img
+        padding-left: 33px
+        +media-breakpoint-down(lg)
+          padding-left: 5px
+    &:last-child
+      +media-breakpoint-down(md)
+        margin-bottom: 0
+    &__img
+      width: 100%
+      max-height: 445px
+      border-radius: 6px
+      +media-breakpoint-down(lg)
+        max-height: 420px
+      +media-breakpoint-down(sm)
+        max-height: 100%
+      img
+        max-width: 508px
+        max-height: 445px
+        height: auto
+        object-fit: cover
+        border-radius: 6px
+        +media-breakpoint-down(lg)
+          max-height: 420px
+          max-width: 100%
+        +media-breakpoint-down(sm)
+          max-height: 100%
+          height: 500px
+          width: 100%
+        +media-breakpoint-down(xs)
+          height: auto
+    &__text
+      position: relative
+      padding-left: 33px
+      +media-breakpoint-down(lg)
+        padding-left: 5px
+      +media-breakpoint-down(sm)
+        padding-top: 30px
+      ul
+        margin: 0 0 7px 0
+        padding: 0
+        list-style: none
+        line-height: 1.55
+      p
+        margin-bottom: 7px
+    &__title
+      display: block
+      font-weight: 700
+      font-size: 24px
+      line-height: 33px
+      margin-bottom: 35px
+      +media-breakpoint-down(sm)
+        margin-bottom: 10px
+    &__btn
+      position: relative
+      margin-top: 46px
+      display: inline-block
+      padding: 26px 36px
+      transition: $trs
+      +media-breakpoint-down(xs)
+        margin-top: 40px
+        width: 100%
+        text-align: center
+      &:hover
+        transform: translateY(-10px)
+
+#form-popup
+  .form
+    max-width: 350px
+    margin: 0 auto
+
+.mfp-fade.mfp-bg
+  opacity: 0
+  transition: all 0.15s ease-out
+.mfp-fade.mfp-bg.mfp-ready
+  opacity: 0.8
+.mfp-fade.mfp-bg.mfp-removing
+  opacity: 0
+.mfp-fade.mfp-wrap .mfp-content
+  opacity: 0
+  transition: all 0.15s ease-out
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content
+  opacity: 1
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content
+  opacity: 0
 
 

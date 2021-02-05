@@ -30,6 +30,20 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 		});
 	}
+
+	$('.form-popup').magnificPopup({
+		type:'inline',
+		tClose: 'Закрыть',
+		tLoading: 'Загрузка...',
+		showCloseBtn: false,
+		removalDelay: 300,
+		mainClass: 'mfp-fade',
+		midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+	});
+
+	$('.form__button').on("click", function() {
+		$.magnificPopup.close();
+	});
 	
 	// End Magnific Popup
 
@@ -67,7 +81,8 @@ document.addEventListener("DOMContentLoaded", function() {
   
   $certificateSlider.slick({
     slidesToShow: 4,
-    slidesToScroll: 1,
+		slidesToScroll: 1,
+		lazyLoad: 'ondemand',
 		speed: 400,
 		prevArrow: ".slider__prev",
 		nextArrow: ".slider__next",
