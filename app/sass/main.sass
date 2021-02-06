@@ -1761,6 +1761,8 @@ p.description
   position: relative
   margin: 37px 0 42px
   display: block
+  +media-breakpoint-down(md)
+    margin: 37px 0 40px
   +media-breakpoint-down(xs)
     margin: 30px 0
   &__nav
@@ -2151,5 +2153,189 @@ p.description
   opacity: 1
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content
   opacity: 0
+
+.news-block
+  position: relative
+  padding-bottom: 67px
+  +media-breakpoint-down(md)
+    padding-bottom: 40px
+.news-categories
+  position: relative
+  +media-breakpoint-down(md)
+    display: flex
+    justify-content: space-between
+  +media-breakpoint-down(xs)
+    flex-direction: column
+  &.detail
+    +media-breakpoint-down(md)
+      display: none
+  &__item
+    width: 100% !important
+    color: #BFBFBF
+    padding-left: 30px
+    padding-right: 42px
+    font-size: 14px
+    line-height: 19px
+    background: #1E1E1E
+    margin-bottom: 20px
+    border-radius: 6px
+    height: 70px
+    display: flex !important
+    border: 1px solid #1E1E1E
+    align-items: center
+    transition: $trs
+    cursor: pointer
+    +media-breakpoint-down(md)
+      width: 48% !important
+      margin-bottom: 40px
+    +media-breakpoint-down(xs)
+      padding-left: 40px
+      padding-right: 18px
+      width: 100% !important
+      margin-bottom: 30px
+    &:hover
+      color: $accent
+      border: 1px solid $accent
+      text-decoration: none
+
+.news-list
+  position: relative
+  &__title
+    display: block
+    font-weight: 700
+    font-size: 36px
+    line-height: 50px
+    margin-bottom: 35px
+    +media-breakpoint-down(md)
+      margin-bottom: 40px
+    +media-breakpoint-down(xs)
+      font-size: 24px
+      line-height: 33px
+      margin-bottom: 30px
+    &.mobile
+      display: none
+      +media-breakpoint-down(md)
+        display: block
+  .news-list__title
+    +media-breakpoint-down(md)
+      display: none
+
+.news-item
+  position: relative
+  display: flex
+  margin-bottom: 30px
+  +media-breakpoint-down(md)
+    margin-bottom: 40px
+  +media-breakpoint-down(xs)
+    flex-direction: column
+  &__img
+    flex: 0 0 255px
+    height: 198px
+    border-radius: 6px
+    +media-breakpoint-down(xs)
+      flex: 0 0 100%
+      height: 214px
+    img
+      max-width: 100%
+      max-height: 100%
+      width: 100%
+      height: auto
+      object-fit: cover
+      border-radius: 6px
+  &__text
+    position: relative
+    margin-left: 30px
+    +media-breakpoint-down(xs)
+      margin-left: 0
+      margin-top: 25px
+  &__title
+    font-weight: 700
+    font-size: 24px
+    line-height: 33px
+    margin-bottom: 15px
+    +media-breakpoint-down(xs)
+      font-size: 18px
+      line-height: 25px
+  &__announcement
+    position: relative
+    margin-bottom: 15px
+    +media-breakpoint-down(xs)
+      font-size: 14px
+      margin-bottom: 27px
+    p
+      line-height: 25px
+      margin-bottom: 7px
+      +media-breakpoint-down(xs)
+        line-height: 22px
+  &__link
+    font-weight: 500
+    font-size: 14px
+    color: #BFBFBF
+    border-bottom: 1px dashed #BFBFBF
+    transition: $trs
+    &:hover
+      color: $accent
+      border-bottom: 1px dashed $accent
+      text-decoration: none
+
+.news-detail
+  position: relative
+  &__img
+    width: 100%
+    height: 340px
+    +media-breakpoint-down(xs)
+      height: 214px
+    img
+      max-width: 100%
+      width: 100%
+      height: 100%
+      object-fit: cover
+      border-radius: 6px
+  &__title
+    margin-top: 45px
+    margin-bottom: 35px
+    font-weight: 700
+    font-size: 36px
+    line-height: 50px
+    +media-breakpoint-down(xs)
+      font-size: 24px
+      line-height: 33px
+      margin-bottom: 30px
+      margin-top: 30px
+  &__text
+    line-height: 25px
+    +media-breakpoint-down(xs)
+      font-size: 14px
+      line-height: 22px
+    p
+      margin-bottom: 20px
+    ul
+      margin: 0 0 20px
+  &__date
+    color: #BFBFBF
+    margin-bottom: 40px
+
+.pagination
+  margin: 50px 0 0 0
+  padding: 0
+  list-style: none
+  display: flex
+  align-items: center
+  justify-content: flex-end
+  +media-breakpoint-down(md)
+    justify-content: center
+  .page-link
+    padding: 5px 15px
+    border-top: 1px solid #bfbfbf
+    border-left: 1px solid #bfbfbf
+    border-bottom: 1px solid #bfbfbf
+    color: $textcolor
+    &:hover
+      text-decoration: none
+      color: $accent
+  .page-item
+    &:last-child
+      .page-link
+        border-right: 1px solid #bfbfbf
 
 

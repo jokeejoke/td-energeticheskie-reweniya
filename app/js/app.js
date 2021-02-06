@@ -313,6 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		})
 	}
 
+	gsap.registerPlugin(ScrollTrigger);
 	gsap.config({ nullTargetWarn: false })
 	function basicAnimation() {
 		const tl = gsap.timeline({
@@ -327,6 +328,85 @@ document.addEventListener("DOMContentLoaded", function() {
 		tl.from('.home .main__text .section-title', { opacity: 0, duration: 0.7}, '-=0.8')
 		tl.from('.home .main .form', { opacity: 0, duration: 2}, '-=0.8')
 		tl.from('.home .main .main__btn', { opacity: 0, duration: 1}, '-=1.5')
+	}
+
+	function aboutSectionAnimation() {
+		const scrollAnim = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.home .about'
+			}
+		})
+		scrollAnim.from('.home .about .post-title', { y: 100, opacity: 0, duration: 0.5 })
+		scrollAnim.from('.home .about .section-title', { x: -100, opacity: 0, duration: 1 }, '-=0.4')
+		scrollAnim.from('.home .about .advantages', { opacity: 0, duration: 1, stagger: 0.4 }, '-=0.4')
+	}
+
+	function catalogSectionAnimation() {
+		const scrollAnim = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.home .catalog'
+			}
+		})
+		scrollAnim.from('.home .catalog .post-title', { y: 100, opacity: 0, duration: 0.5 })
+		scrollAnim.from('.home .catalog .section-title', { x: -100, opacity: 0, duration: 1}, '-=0.4')
+		scrollAnim.from('.home .catalog .catalog-dots', { opacity: 0, duration: 2})
+		scrollAnim.from('.home .catalog .catalog__btn', { opacity: 0, duration: 0.5}, '-=0.4')
+	}
+
+	function certificatesSectionAnimation() {
+		const scrollAnim = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.home .certificates'
+			}
+		})
+		scrollAnim.from('.home .certificates .post-title', { y: 100, opacity: 0, duration: 0.5 })
+		scrollAnim.from('.home .certificates .section-title', { x: -100, opacity: 0, duration: 1}, '-=0.4')
+		scrollAnim.from('.home .certificates .certificates-gallery', { opacity: 0, y: 100, duration: 1}, '-=0.7')
+	}
+
+	function partnersSectionAnimation() {
+		const scrollAnim = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.home .partners'
+			}
+		})
+		scrollAnim.from('.home .partners .post-title', { y: 100, opacity: 0, duration: 0.5 })
+		scrollAnim.from('.home .partners .section-title', { x: -100, opacity: 0, duration: 1}, '-=0.4')
+		scrollAnim.from('.home .partners .partners-slider', { opacity: 0, y: 100, duration: 1}, '-=0.7')
+	}
+
+	function projectsSectionAnimation() {
+		const scrollAnim = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.home .projects'
+			}
+		})
+		scrollAnim.from('.home .projects .post-title', { y: 100, opacity: 0, duration: 0.5 })
+		scrollAnim.from('.home .projects .projects-slider__title', { x: -100, opacity: 0, duration: 1}, '-=0.4')
+		scrollAnim.from('.home .projects .projects-slider__img', { opacity: 0, x: 100, duration: 1}, '-=0.7')
+		scrollAnim.from('.home .projects .projects-slider__text', { opacity: 0, x: -100, duration: 1}, '-=0.7')
+		scrollAnim.from('.home .projects .projects-thumbs', { opacity: 0, y: 100, duration: 1}, '-=0.4')
+	}
+	function newsSectionAnimation() {
+		const scrollAnim = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.home .news'
+			}
+		})
+		scrollAnim.from('.home .news .post-title', { y: 100, opacity: 0, duration: 0.5 })
+		scrollAnim.from('.home .news .section-title', { x: -100, opacity: 0, duration: 1}, '-=0.4')
+		scrollAnim.from('.home .news .news-slider', { opacity: 0, y: 100, duration: 1}, '-=0.4')
+	}
+	function contactsSectionAnimation() {
+		const scrollAnim = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.home .contacts'
+			}
+		})
+		scrollAnim.from('.home .contacts .post-title', { y: 100, opacity: 0, duration: 0.5 })
+		scrollAnim.from('.home .contacts .section-title', { x: -100, opacity: 0, duration: 1}, '-=0.4')
+		scrollAnim.from('.home .contacts .contacts__item', { opacity: 0, x: -100, duration: 1, stagger: 0.5}, '-=0.4')
+		scrollAnim.from('.home .contacts .form', { opacity: 0, x: 100, duration: 1}, '-=0.7')
 	}
 
 
@@ -402,6 +482,13 @@ document.addEventListener("DOMContentLoaded", function() {
 	goBack()
 	basicAnimation()
 	dropdownMenu()
+	aboutSectionAnimation()
+	catalogSectionAnimation()
+	certificatesSectionAnimation()
+	partnersSectionAnimation()
+	projectsSectionAnimation()
+	newsSectionAnimation()
+	contactsSectionAnimation()
 	initScrollBar('.certificates-gallery', '.certificates-gallery__progress')
 	initScrollBar('.partners-slider', '.partners-slider__progress')
 	initScrollBar('.projects-thumbs', '.projects-thumbs__progress')
