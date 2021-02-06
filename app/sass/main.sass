@@ -1636,7 +1636,7 @@ p.description
 
 .toTop
   position: fixed
-  bottom: 85px
+  bottom: 30px
   right: -100px
   background: #1E1E1E
   border: 1px solid #D8D8D8
@@ -1655,7 +1655,7 @@ p.description
   &:hover
     opacity: 1
   &.active
-    right: 30px
+    right: 20px
   svg
     width: 21px
     height: 21px
@@ -2337,5 +2337,80 @@ p.description
     &:last-child
       .page-link
         border-right: 1px solid #bfbfbf
+
+.geography
+  position: relative
+  overflow: hidden
+  &__title
+    font-weight: 700
+    font-size: 36px
+    line-height: 50px
+    +media-breakpoint-down(md)
+      font-size: 24px
+      line-height: 33px
+  &-maps
+    position: relative
+    width: 100%
+    height: 1476px
+    +media-breakpoint-down(md)
+      height: 1576px
+    +media-breakpoint-down(xs)
+      height: 1250px
+    &__first
+      width: 1179px
+      height: auto
+      position: absolute
+      top: 0
+      left: -37px
+      +media-breakpoint-down(lg)
+        width: 1000px
+        left: 47px
+      +media-breakpoint-down(md)
+        width: 760px
+        left: 50%
+        transform: translateX(-50%)
+      +media-breakpoint-down(xs)
+        width: 750px
+    &__second
+      width: 648px
+      height: auto
+      position: absolute
+      bottom: 97px
+      left: 15px
+      +media-breakpoint-down(md)
+        left: 50%
+        bottom: 210px
+        transform: translateX(-50%)
+      +media-breakpoint-down(xs)
+        width: 400px
+    &__third
+      width: 420px
+      height: auto
+      position: absolute
+      right: 0px
+      bottom: 475px
+      user-select: none
+      +media-breakpoint-down(md)
+        right: unset
+        bottom: unset
+        top: 440px
+        left: -32px
+      +media-breakpoint-down(xs)
+        width: 320px
+      +media-breakpoint-down(xs)
+        left: -23px
+  &__btn
+    display: none
+    position: absolute
+    bottom: 80px
+    left: 50%
+    transform: translateX(-50%)
+    padding: 26px 57px
+    +media-breakpoint-down(md)
+      display: inline-block
+    +media-breakpoint-down(xs)
+      width: 100%
+      text-align: center
+      bottom: 60px
 
 
