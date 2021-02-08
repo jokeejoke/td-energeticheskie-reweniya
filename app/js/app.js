@@ -465,6 +465,25 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	}
 
+	function tablePadding () {
+		$table = document.querySelectorAll('table')
+		if($table) {
+			$table.forEach(table => {
+				table.setAttribute('cellpadding', '12')
+			})
+		}
+	}
+
+	function mapHover() {
+		$map = document.querySelector('.warehouse-map')
+		$mapHoverBlock = document.querySelector('.warehouse-map__hover')
+		if($map) {
+			$map.addEventListener('click', function() {
+				$mapHoverBlock.style.display = 'none'
+			})
+		}
+	}
+
 	if(window.innerWidth <= 576) {
 		$('.projects-slider').slick('unslick');
 		$('.inner-catalog-content-slider').slick('unslick');
@@ -489,6 +508,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	projectsSectionAnimation()
 	newsSectionAnimation()
 	contactsSectionAnimation()
+	tablePadding()
+	mapHover()
 	initScrollBar('.certificates-gallery', '.certificates-gallery__progress')
 	initScrollBar('.partners-slider', '.partners-slider__progress')
 	initScrollBar('.projects-thumbs', '.projects-thumbs__progress')

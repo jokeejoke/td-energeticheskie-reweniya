@@ -7,7 +7,7 @@
 	<title>ТД Энергетические решения</title>
 	<meta name="description" content="ТД Энергетические решения">
 	<meta name="viewport" content="width=device-width">
-	<link rel="icon" href="img/favicon.png">
+	<link rel="icon" href="images/favicon.ico">
 	<meta property="og:image" content="img/dest/preview.jpg">
 	<link rel="stylesheet" href="css/app.min.css">
 
@@ -167,7 +167,7 @@
 								персональных данных</label>
 						</div>
 					</form>
-					<button type="button" class="main__btn theme-btn">Оставить заявку</button>
+					<a href="#form-popup" class="main__btn theme-btn form-popup">Оставить заявку</a>
 				</div>
 			</div>
 		</div>
@@ -1313,6 +1313,53 @@
 			<path d="M10.0949 5.94039L5.30049 10.7348C5.21693 10.8213 5.11698 10.8903 5.00647 10.9378C4.89596 10.9852 4.7771 11.0102 4.65683 11.0113C4.53656 11.0123 4.41729 10.9894 4.30597 10.9438C4.19465 10.8983 4.09351 10.831 4.00847 10.746C3.92342 10.661 3.85616 10.5598 3.81062 10.4485C3.76507 10.3372 3.74215 10.2179 3.7432 10.0976C3.74424 9.97736 3.76923 9.8585 3.8167 9.74799C3.86417 9.63748 3.93318 9.53753 4.01969 9.45398L10.3603 3.1134C10.9309 2.54274 11.9065 2.94673 11.9065 3.75379V18.2465C11.9065 18.4868 11.811 18.7172 11.6412 18.887C11.4713 19.0569 11.2409 19.1523 11.0007 19.1523C10.7604 19.1523 10.53 19.0569 10.3602 18.887C10.1903 18.7172 10.0949 18.4868 10.0949 18.2465V5.94039ZM13.0414 6.61974C12.9578 6.53167 12.8927 6.42767 12.85 6.31393C12.8074 6.20019 12.788 6.07903 12.7932 5.95766C12.7983 5.8363 12.8278 5.71721 12.8799 5.60747C12.9319 5.49773 13.0056 5.39959 13.0964 5.31888C13.1872 5.23818 13.2933 5.17656 13.4083 5.1377C13.5234 5.09883 13.6452 5.08352 13.7663 5.09266C13.8874 5.10179 14.0055 5.1352 14.1134 5.1909C14.2214 5.24659 14.317 5.32343 14.3947 5.41684L18.0179 9.49292C18.1015 9.581 18.1666 9.68499 18.2093 9.79873C18.2519 9.91247 18.2713 10.0336 18.2662 10.155C18.261 10.2764 18.2315 10.3955 18.1795 10.5052C18.1274 10.6149 18.0537 10.7131 17.9629 10.7938C17.8722 10.8745 17.7661 10.9361 17.651 10.975C17.5359 11.0138 17.4141 11.0291 17.293 11.02C17.1719 11.0109 17.0538 10.9775 16.9459 10.9218C16.8379 10.8661 16.7423 10.7892 16.6646 10.6958L13.0414 6.61974Z" fill="white"/>
 		</svg>			
 	</div>
+
+	<div id="form-popup" class="mfp-hide">
+    <div class="container">
+      <form class="form">
+        <div class="form__title">Оставьте заявку прямо сейчас</div>
+        <p class="form__description">Мы свяжемся с Вами и ответим <br> на любой интересующий Вас вопрос</p>
+        <span class="form__alert">Выберите удобный способ связи:</span>
+        <div class="form__group flex">
+          <div class="label">
+            <input type="radio" value="Телефон" id="byPhone" name="communicate" checked>
+            <label for="byPhone" class="choose">Телефон</label>
+          </div>
+          <div class="label">
+            <input type="radio" value="whatsApp" id="byWhatsapp" name="communicate">
+            <label for="byWhatsapp" class="choose">WhatsApp</label>
+          </div>
+          <div class="label">
+            <input type="radio" value="telegram" id="byTelegram" name="communicate">
+            <label for="byTelegram" class="choose">Telegram</label>
+          </div>
+          <div class="label">
+            <input type="radio" value="viber" id="byViber" name="communicate">
+            <label for="byViber" class="choose">Viber</label>
+          </div>
+        </div>
+        <div class="form__group">
+          <input type="text" class="phone" name="phone" placeholder="Ваш номер телефона" required>
+        </div>
+        <div class="form__group">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+        </div>
+        <div class="form__group">
+          <button type="submit" class="submit theme-btn">Оставить заявку</button>
+        </div>
+        <div class="form__group">
+          <input type="checkbox" name="privacy" id="privacy" class="privacy" checked required>
+          <label for="privacy" class="privacy-text">Я согласен с условиями обработки
+            персональных данных</label>
+        </div>
+        <button type="button" class="form__button" title="Закрыть">
+          <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.4999 15.4379L25.2189 7.71894C25.4939 7.4533 25.8623 7.3063 26.2447 7.30963C26.6271 7.31295 26.9928 7.46632 27.2632 7.73671C27.5336 8.00709 27.687 8.37286 27.6903 8.75523C27.6936 9.1376 27.5466 9.50598 27.281 9.78103L9.78098 27.281C9.64645 27.4203 9.48553 27.5314 9.30761 27.6078C9.12969 27.6843 8.93832 27.7245 8.74469 27.7262C8.55105 27.7279 8.35902 27.691 8.17979 27.6176C8.00057 27.5443 7.83774 27.436 7.70082 27.2991C7.56389 27.1622 7.4556 26.9993 7.38228 26.8201C7.30895 26.6409 7.27205 26.4489 7.27374 26.2552C7.27542 26.0616 7.31565 25.8702 7.39208 25.6923C7.46851 25.5144 7.57961 25.3535 7.71889 25.2189L15.4379 17.5L7.71889 9.78103C7.45325 9.50598 7.30625 9.1376 7.30958 8.75523C7.3129 8.37286 7.46627 8.00709 7.73666 7.73671C8.00705 7.46632 8.37281 7.31295 8.75518 7.30963C9.13755 7.3063 9.50593 7.4533 9.78098 7.71894L17.4999 15.4379ZM20.1147 22.1769C19.8491 21.9018 19.7021 21.5334 19.7054 21.1511C19.7087 20.7687 19.8621 20.4029 20.1325 20.1325C20.4029 19.8622 20.7686 19.7088 21.151 19.7055C21.5334 19.7021 21.9018 19.8491 22.1768 20.1148L27.281 25.2189C27.5466 25.494 27.6936 25.8624 27.6903 26.2447C27.687 26.6271 27.5336 26.9929 27.2632 27.2633C26.9928 27.5336 26.6271 27.687 26.2447 27.6903C25.8623 27.6937 25.4939 27.5467 25.2189 27.281L20.1147 22.1769Z" fill="white"/>
+          </svg>            
+        </button>
+      </form>
+    </div>
+  </div>
 
 
 	<script src="js/app.min.js"></script>

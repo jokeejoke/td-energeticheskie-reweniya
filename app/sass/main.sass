@@ -373,6 +373,8 @@
       margin-bottom: 68px
   &__btn
     display: none
+    max-width: 240px
+    text-align: center
     +media-breakpoint-down(md)
       display: block
     +media-breakpoint-down(xs)
@@ -903,6 +905,8 @@ p.description
     background: #232323
     margin: 0 15px
     height: 340px
+    +media-breakpoint-down(lg)
+      height: 420px
     +media-breakpoint-down(sm)
       height: 400px
       margin: 0 10px
@@ -1188,6 +1192,8 @@ p.description
       +media-breakpoint-down(sm)
         display: block
     +media-breakpoint-down(sm)
+      padding-bottom: 0
+    +media-breakpoint-down(xs)
       padding-bottom: 40px
     &:active,
     &:focus
@@ -1244,6 +1250,7 @@ p.description
     transition: $trs
     +media-breakpoint-down(sm)
       margin-left: 0
+      box-shadow: none
     &:hover
       transform: translateY(-10px)
   &__information
@@ -1451,8 +1458,33 @@ p.description
   +media-breakpoint-down(md)
     padding-bottom: 0
   &.no-home
+    padding-bottom: 30px
     +media-breakpoint-down(md)
       display: none
+  &.contacts-page
+    .section-title
+      margin-top: 0
+      +media-breakpoint-down(sm)
+        margin-bottom: 60px
+      +media-breakpoint-down(xs)
+        margin-bottom: 50px
+    .contacts__item
+      +media-breakpoint-down(md)
+        margin-bottom: 0
+      &:last-child
+        margin-bottom: 0
+    .form
+      +media-breakpoint-down(md)
+        display: block
+        margin-top: 0
+      +media-breakpoint-down(sm)
+        margin-bottom: 60px
+    .contacts-list__flex
+      +media-breakpoint-down(md)
+        flex-direction: column
+    .contacts-list__item
+      +media-breakpoint-down(md)
+        margin-bottom: 25px
   .post-title
     margin-top: 70px
     +media-breakpoint-down(sm)
@@ -1646,7 +1678,7 @@ p.description
   text-align: center
   border-radius: 50%
   cursor: pointer
-  z-index: 103
+  z-index: 10001
   opacity: 0.6
   transition: $trs
   display: none
@@ -2052,6 +2084,8 @@ p.description
       line-height: 33px
   &__description
     line-height: 25px !important
+    p
+      margin-bottom: 20px
   &__list
     position: relative
     margin-top: 70px
@@ -2086,6 +2120,7 @@ p.description
         max-height: 100%
       img
         max-width: 508px
+        width: 100%
         max-height: 445px
         height: auto
         object-fit: cover
@@ -2120,6 +2155,8 @@ p.description
       line-height: 33px
       margin-bottom: 35px
       +media-breakpoint-down(sm)
+        margin-bottom: 30px
+      +media-breakpoint-down(xs)
         margin-bottom: 10px
     &__btn
       position: relative
@@ -2159,6 +2196,8 @@ p.description
   padding-bottom: 67px
   +media-breakpoint-down(md)
     padding-bottom: 40px
+  +media-breakpoint-down(xs)
+    padding-bottom: 0
 .news-categories
   position: relative
   +media-breakpoint-down(md)
@@ -2345,7 +2384,7 @@ p.description
     font-weight: 700
     font-size: 36px
     line-height: 50px
-    +media-breakpoint-down(md)
+    +media-breakpoint-down(xs)
       font-size: 24px
       line-height: 33px
   &-maps
@@ -2413,4 +2452,327 @@ p.description
       text-align: center
       bottom: 60px
 
+.footing
+  position: relative
+  &__title
+    font-size: 36px
+    line-height: 50px
+    font-weight: 700
+    margin-bottom: 45px
+    max-width: 759px
+    +media-breakpoint-down(md)
+      max-width: 100%
+    +media-breakpoint-down(xs)
+      font-size: 24px
+      line-height: 33px
+      margin-bottom: 30px
+  &-list
+    position: relative
+    display: flex
+    justify-content: space-between
+    +media-breakpoint-down(md)
+      flex-wrap: wrap
+    &__link
+      display: block
+      margin-bottom: 36px
+      line-height: 22px
+      color: $textcolor
+      transition: $trs
+      +media-breakpoint-down(xs)
+        font-size: 14px
+        line-height: 19px
+        margin-bottom: 20px
+      &:hover
+        text-decoration: none
+        color: $accent
+    &__column
+      position: relative
+      max-width: 340px
+      +media-breakpoint-down(lg)
+        margin-right: 30px
+      +media-breakpoint-down(md)
+        max-width: 100%
+        flex: 0 0 48%
+        margin-right: 0
+      +media-breakpoint-down(sm)
+        flex: 0 0 100%
+      &:last-child
+        +media-breakpoint-down(lg)
+          margin-right: 0
+      &:last-child
+        margin-right: 0
+  &-table
+    position: relative
+    +media-breakpoint-down(lg)
+      overflow-x: scroll
+    table
+      border: 1px solid rgba(255,255,255,.3)
+      border-radius: 6px
+      border-collapse: collapse
+      background: #1E1E1E
+      font-size: 15px
+      +media-breakpoint-down(lg)
+        font-size: 12px
+      +media-breakpoint-down(sm)
+        font-size: 10px
+      td, th
+        border-right: 1px solid rgba(255,255,255,.3)
+      th
+        font-size: 16px
+        font-weight: 500
+      tr
+        td
+          &:first-child,
+          &:last-child
+            text-align: center
+  &-gallery
+    margin-top: 70px
+    +media-breakpoint-down(xs)
+      margin-top: 50px
+    .progress
+      display: none
+      +media-breakpoint-down(lg)
+        display: block
+    .slider__next,
+    .slider__prev
+      +media-breakpoint-down(lg)
+        bottom: 6px
+    .slider__prev
+      +media-breakpoint-down(xs)
+        left: -15px
+    .slider__next
+      +media-breakpoint-down(xs)
+        right: -15px
+    .certificates-gallery__item
+      border: none
+      border-radius: 6px
+      +media-breakpoint-down(xs)
+        border-radius: 16px
+        border: 10px solid #232323
+  &__form
+    margin-top: 50px
+    display: none
+    +media-breakpoint-down(md)
+      display: block
+    +media-breakpoint-down(xs)
+      display: none
+  &__buttons
+    display: none
+    margin-top: 50px
+    +media-breakpoint-down(xs)
+      display: flex
+      flex-direction: column
+    .theme-btn
+      text-align: center
+    .error__btn
+      margin-top: 20px
+
+.page
+  position: relative
+  padding-bottom: 92px
+  +media-breakpoint-down(md)
+    padding-bottom: 50px
+  +media-breakpoint-down(xs)
+    padding-bottom: 0
+  &__title
+    font-weight: 700
+    font-size: 36px
+    line-height: 50px
+    margin-bottom: 35px
+    +media-breakpoint-down(xs)
+      font-size: 24px
+      line-height: 33px
+      margin-bottom: 30px
+  &__description
+    line-height: 25px
+    margin-bottom: 80px
+    +media-breakpoint-down(md)
+      margin-bottom: 60px
+    +media-breakpoint-down(xs)
+      margin-bottom: 40px
+    p
+      margin-bottom: 20px
+      +media-breakpoint-down(xs)
+        margin-bottom: 15px
+  &__buttons
+    text-align: center
+    margin-top: 75px
+    +media-breakpoint-down(md)
+      margin-top: 50px
+    +media-breakpoint-down(xs)
+      margin-top: 30px
+    .theme-btn
+      display: inline-block
+      padding: 26px 37px
+      +media-breakpoint-down(xs)
+        width: 100%
+
+.logistics
+  &-list
+    position: relative
+  &-item
+    position: relative
+    background: #1E1E1E
+    border: 1px solid rgba(255, 255, 255, 0.5)
+    border-radius: 6px
+    padding: 33px 40px
+    margin-bottom: 30px
+    height: 240px
+    +media-breakpoint-down(md)
+      height: auto
+      margin-bottom: 20px
+    +media-breakpoint-down(xs)
+      padding: 30px 20px
+    &__title
+      display: block
+      font-size: 36px
+      line-height: 50px
+      font-weight: 700
+      margin-bottom: 15px
+      +media-breakpoint-down(xs)
+        font-size: 18px
+        line-height: 25px
+        margin-bottom: 10px
+    p
+      line-height: 25px
+      margin-bottom: 0
+      +media-breakpoint-down(xs)
+        font-size: 14px
+        line-height: 22px
+    &.full-height
+      height: 511px
+      +media-breakpoint-down(md)
+        height: auto
+    img
+      position: absolute
+      left: 40px
+      width: 38px
+      height: 38px
+      +media-breakpoint-down(md)
+        position: relative
+        width: 40px
+        height: 40px
+        margin-top: 25px
+        left: 0
+      +media-breakpoint-down(xs)
+        display: none
+      &.water
+        width: 117px
+        height: 117px
+        bottom: 77px
+        +media-breakpoint-down(lg)
+          bottom: 23px
+        +media-breakpoint-down(md)
+          width: 40px
+          height: 40px
+          bottom: 0
+      &.road
+        bottom: 28px
+        +media-breakpoint-down(md)
+          bottom: 0
+      &.airplane
+        width: 44px
+        height: 44px
+        bottom: 23px
+        +media-breakpoint-down(md)
+          bottom: 0
+      &.worldwide-shipping
+        bottom: 38px
+        +media-breakpoint-down(md)
+          bottom: 0
+
+.warehouse
+  position: relative
+  padding-bottom: 0
+  .page__description
+    margin-bottom: 90px
+    +media-breakpoint-down(sm)
+      margin-bottom: 60px
+    +media-breakpoint-down(xs)
+      margin-bottom: 30px
+  &-buttons
+    margin-bottom: 101px
+    +media-breakpoint-down(sm)
+      margin-top: 15px
+      margin-bottom: 60px
+    +media-breakpoint-down(xs)
+      margin-top: 50px
+      margin-bottom: 0
+  &-contacts
+    padding-bottom: 10px
+    .contacts__item
+      margin-bottom: 45px
+      &:first-child
+        +media-breakpoint-down(sm)
+          margin-top: 60px
+        +media-breakpoint-down(xs)
+          margin-top: 0
+    .contacts-list
+      &__value
+        margin-top: 0
+        max-width: 400px
+        +media-breakpoint-down(sm)
+          max-width: 500px
+        +media-breakpoint-down(xs)
+          max-width: 100%
+      &__title
+        margin-bottom: 15px
+      &__item
+        margin-right: 0
+        margin-bottom: 0
+  &-map
+    position: relative
+    width: 100%
+    height: 356px
+    border-radius: 6px
+    cursor: pointer
+    padding: 3px
+    +media-breakpoint-down(xs)
+      height: 214px
+    &__hover
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background-image: url(../images/dest/map2.png)
+      background-size: cover
+      background-position: center center
+      border-radius: 6px
+      z-index: 1
+      display: flex
+      justify-content: center
+      align-items: center
+    &__button
+      display: flex
+      align-items: center
+      span
+        font-weight: 700
+        font-size: 14px
+        max-width: 78px
+        line-height: 13px
+        display: block
+        +media-breakpoint-down(xs)
+          font-size: 12px
+    &__icon
+      width: 40px
+      height: 40px
+      line-height: 40px
+      text-align: center
+      border-radius: 50%
+      background: linear-gradient(180deg, #FFC676 0%, #F28F48 100%)
+      box-shadow: 0px 20px 50px rgba(252, 182, 105, 0.3)
+      margin-right: 9px
+    iframe
+      border-radius: 8px
+
+.contacts-map
+  position: relative
+  margin-bottom: 100px
+  +media-breakpoint-down(md)
+    margin-top: 49px
+    margin-bottom: 49px
+  +media-breakpoint-down(xs)
+    margin-top: 25px
+    margin-bottom: 0
 
