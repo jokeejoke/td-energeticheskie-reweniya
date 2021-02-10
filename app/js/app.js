@@ -282,8 +282,15 @@ document.addEventListener("DOMContentLoaded", function() {
 	function dropdownMenu () {
 		const $dropdownItem = document.querySelectorAll('.navbar__item-child')
 		$dropdownItem.forEach(item => {
-			item.addEventListener('click', function (e) { 
-				this.classList.toggle('active')
+			item.addEventListener('click', function (e) {
+				if(this.classList.contains('active')) {
+					this.classList.remove('active')
+				} else {
+					$dropdownItem.forEach(link => {
+						link.classList.remove('active')
+					})
+					this.classList.add('active')
+				}
 				e.preventDefault()
 			})
 		})

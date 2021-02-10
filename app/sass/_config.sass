@@ -78,6 +78,7 @@ a
 
 .theme-btn
 	position: relative
+	display: inline-block
 	overflow: hidden
 	background: $btnGradient
 	border: none
@@ -88,11 +89,18 @@ a
 	font-weight: 700
 	line-height: 19px
 	transition: background .6s ease
+	text-align: center
 	z-index: 1
 	+media-breakpoint-down(md)
 		font-size: 15px
 	+media-breakpoint-down(sm)
 		box-shadow: none
+		max-width: 320px
+		padding: 28px 0
+		margin: 0 auto
+		display: block
+		width: 100%
+		
 	&::after
 		content: ''
 		position: absolute
