@@ -170,7 +170,7 @@
 .phone-list
   position: relative
   display: flex
-  margin-left: 60px
+  margin-right: 105px
   margin-top: 15px
   +media-breakpoint-down(md)
     flex-direction: column
@@ -358,8 +358,10 @@
   &__text
     position: relative
     z-index: 2
+    margin-top: 30px
     .description
-      max-width: 70%
+      max-width: 72%
+      line-height: 25px
   .section-title
     margin: 24px 0 37px
     letter-spacing: -0.01em
@@ -682,7 +684,7 @@ p.description
       bottom: 45px
   &__btn
     position: absolute
-    bottom: -210px
+    bottom: -217px
     left: 50%
     transform: translateX(-50%)
     transition: $trs
@@ -691,9 +693,10 @@ p.description
     +media-breakpoint-down(sm)
       bottom: -100px
       width: 320px
-      padding: 0 15px
     &:hover
       bottom: -200px
+      +media-breakpoint-down(sm)
+        bottom: -100px
     
 
 @keyframes arrowAnimate
@@ -728,6 +731,13 @@ p.description
   &__img
     max-width: 100%
     height: auto
+    position: absolute
+    top: 276px
+    left: 0
+    +media-breakpoint-down(lg)
+      top: 200px
+    +media-breakpoint-down(md)
+      top: 130px
   .catalog-dots
     +media-breakpoint-down(sm)
       display: none
@@ -784,7 +794,7 @@ p.description
         left: 200px
     &:nth-child(3)
       top: 535px
-      left: 328px
+      left: 330px
       +media-breakpoint-down(lg)
         top: 480px
         left: 155px
@@ -802,7 +812,7 @@ p.description
         right: 205px
     &:nth-child(6)
       top: 502px
-      right: 264px
+      right: 280px
       +media-breakpoint-down(lg)
         top: 400px
         right: 140px
@@ -1562,6 +1572,7 @@ p.description
 
 .footer
   position: relative
+  overflow: hidden
   padding-top: 55px
   padding-bottom: 70px
   +media-breakpoint-down(md)
