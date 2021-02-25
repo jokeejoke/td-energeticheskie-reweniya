@@ -91,6 +91,21 @@
         margin-top: 0
         flex-direction: column
         padding-top: 140px
+      .dropdown
+        +media-breakpoint-down(sm)
+          background: transparent
+          border: none
+          padding: 0
+          left: 0
+          top: 0
+          max-width: 100%
+          transition: none
+        &__item
+          +media-breakpoint-down(sm)
+            padding-left: 20px
+        &__link
+          +media-breakpoint-down(sm)
+            font-size: 14px
     &.active
       opacity: 1
       visibility: visible
@@ -265,6 +280,8 @@
         opacity: 1
         visibility: visible
         z-index: 2
+        +media-breakpoint-down(sm)
+          position: relative
       .navbar__link
         z-index: 3
         color: $accent
@@ -1011,7 +1028,7 @@ p.description
   background-color: #161616
   background-image: linear-gradient(to right, #FFC87A, #FF9E59)
   background-repeat: no-repeat
-  background-size: 5% 100%
+  background-size: 0 100%
   transition: background-size .4s ease-in-out
   +media-breakpoint-down(lg)
     width: 80%
@@ -1393,6 +1410,14 @@ p.description
     padding-top: 30px
   &__progress
     margin-top: 43px
+    display: none
+    +media-breakpoint-down(md)
+      display: block
+  &__prev,
+  &__next
+    display: none !important
+    +media-breakpoint-down(md)
+      display: block !important
   &__item
     position: relative
     margin: 0 18px
@@ -1750,6 +1775,9 @@ p.description
       right: 0
       text-align: right
       z-index: -1
+    +media-breakpoint-down(xs)
+      top: -230px
+      z-index: 1
     img
       max-width: 804px
       height: auto
@@ -1757,6 +1785,8 @@ p.description
         max-width: 100%
       +media-breakpoint-down(sm)
         max-width: 70%
+      +media-breakpoint-down(xs)
+        max-width: 55%
   &__btn
     display: inline-block
     margin-top: 48px

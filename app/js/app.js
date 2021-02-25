@@ -61,21 +61,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// Silders with scrollbar
 
+	function setProgress(index, $slider, $progressBar, $progressBarLabel) {
+		const calc = ((index + 1) / ($slider.slick('getSlick').slideCount)) * 100;
+	
+		$progressBar
+			.css('background-size', `${calc}% 100%`)
+			.attr('aria-valuenow', calc);
+	
+		$progressBarLabel.text(`${calc.toFixed(2)}% completed`);
+	}
+
 	function initScrollBar(sliderSelector, scrollBarSelector) {
+		
+
+		
 		const $slider = $(sliderSelector);
 		const $progressBar = $(scrollBarSelector);
 		const $progressBarLabel = $( '.slider__label' );
+
+		setProgress(0, $slider, $progressBar, $progressBarLabel)
 		
 		$slider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {   
-			let calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
-
-			$progressBar
-				.css('background-size', calc + '% 100%')
-				.attr('aria-valuenow', calc );
-			
-			$progressBarLabel.text( calc + '% completed' );
+			setProgress(nextSlide, $slider, $progressBar, $progressBarLabel);
 		});
 	}
+
+	//setProgress(0);
 
 	const $certificateSlider = $('.certificates-gallery');
   
