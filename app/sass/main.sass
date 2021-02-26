@@ -2457,9 +2457,11 @@ p.description
     width: 100%
     height: 862px
     +media-breakpoint-down(md)
-      //height: 1576px
+      height: 1270px
+    +media-breakpoint-down(sm)
+      height: 1200px
     +media-breakpoint-down(xs)
-      //height: 1250px
+      height: 870px
     &__first
       width: 648px
       height: auto
@@ -2468,8 +2470,10 @@ p.description
       left: 15px
       +media-breakpoint-down(md)
         left: 50%
-        bottom: 210px
+        bottom: 250px
         transform: translateX(-50%)
+      +media-breakpoint-down(sm)
+        bottom: 200px
       +media-breakpoint-down(xs)
         width: 400px
     &__second
@@ -2482,7 +2486,7 @@ p.description
       +media-breakpoint-down(md)
         right: unset
         bottom: unset
-        top: 440px
+        top: 25px
         left: -32px
       +media-breakpoint-down(xs)
         width: 320px
@@ -2497,6 +2501,8 @@ p.description
     padding: 26px 57px
     +media-breakpoint-down(md)
       display: inline-block
+    +media-breakpoint-down(sm)
+      bottom: 30px
     +media-breakpoint-down(xs)
       width: 100%
       text-align: center
