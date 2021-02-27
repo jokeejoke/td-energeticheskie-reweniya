@@ -255,6 +255,101 @@ document.addEventListener("DOMContentLoaded", function() {
 		]
 	});
 
+	// Sales Slider
+	const $employeesSlider = $('.sales-slider');
+	
+	$employeesSlider.slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+		speed: 400,
+		prevArrow: ".sales-slider__prev",
+		nextArrow: ".sales-slider__next",
+		responsive: [
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			},
+			{
+				breakpoint: 520,
+				settings: {
+					slidesToShow: 1
+				}
+			}
+		]
+	});
+
+	// Supply Slider
+	const $supplySlider = $('.supply-slider');
+	
+	$supplySlider.slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+		speed: 400,
+		arrows: true,
+		prevArrow: ".supply-slider__prev",
+		nextArrow: ".supply-slider__next",
+		responsive: [
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			},
+			{
+				breakpoint: 520,
+				settings: {
+					slidesToShow: 1
+				}
+			}
+		]
+	});
+
+	// Logistics Slider
+	const $logisticsSlider = $('.logistics-slider');
+	
+	$logisticsSlider.slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+		speed: 400,
+		arrows: true,
+		prevArrow: ".logistics-slider__prev",
+		nextArrow: ".logistics-slider__next",
+		responsive: [
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			},
+			{
+				breakpoint: 520,
+				settings: {
+					slidesToShow: 1
+				}
+			}
+		]
+	});
+
 
 
 
@@ -502,6 +597,14 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	}
 
+	// Hidden scrollbar when arrows hidden
+	function hiddenScrollBar() {
+		$hiddenArrows = document.querySelectorAll('.slick-arrow.slick-hidden')
+		$hiddenArrows.forEach(a => {
+			a.previousElementSibling.style.display = 'none'
+		})
+	}
+
 	if(window.innerWidth <= 576) {
 		$('.projects-slider').slick('unslick');
 		$('.inner-catalog-content-slider').slick('unslick');
@@ -532,7 +635,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	initScrollBar('.partners-slider', '.partners-slider__progress')
 	initScrollBar('.projects-thumbs', '.projects-thumbs__progress')
 	initScrollBar('.news-slider', '.news-slider__progress')
+	initScrollBar('.sales-slider', '.sales-slider__progress')
+	initScrollBar('.supply-slider', '.supply-slider__progress')
+	initScrollBar('.logistics-slider', '.logistics-slider__progress')
 	popupGallery('.certificates-gallery')
+	hiddenScrollBar()
 	
 
 });

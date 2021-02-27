@@ -1506,12 +1506,14 @@ p.description
     +media-breakpoint-down(md)
       display: none
   &.contacts-page
+    +media-breakpoint-down(md)
+      padding-top: 25px
+    +media-breakpoint-down(sm)
+      padding-top: 60px
     .section-title
       margin-top: 0
-      +media-breakpoint-down(sm)
-        margin-bottom: 60px
-      +media-breakpoint-down(xs)
-        margin-bottom: 50px
+      +media-breakpoint-down(md)
+        display: none
     .contacts__item
       +media-breakpoint-down(md)
         margin-bottom: 0
@@ -1520,9 +1522,9 @@ p.description
     .form
       +media-breakpoint-down(md)
         display: block
-        margin-top: 0
+        margin-top: 35px
       +media-breakpoint-down(sm)
-        margin-bottom: 60px
+        margin-bottom: 15px
     .contacts-list__flex
       +media-breakpoint-down(md)
         flex-direction: column
@@ -1543,7 +1545,7 @@ p.description
       display: none
   &__item
     display: flex
-    margin-bottom: 34px
+    margin-bottom: 30px
     +media-breakpoint-down(xs)
       margin-bottom: 15px
   &__icon
@@ -1568,8 +1570,12 @@ p.description
         height: 20px
   &-list
     &__item
-      margin-bottom: 40px
+      margin-bottom: 30px
       margin-right: 50px
+      +media-breakpoint-down(xs)
+        margin-right: 0
+      &:last-child
+        margin-bottom: 0
       +media-breakpoint-down(xs)
         margin-bottom: 20px
     &__title
@@ -1584,7 +1590,7 @@ p.description
       font-weight: 700
       font-size: 24px
       line-height: 29px
-      max-width: 287px
+      //max-width: 287px
       margin-top: 7px
       +media-breakpoint-down(xs)
         font-size: 16px
@@ -2817,11 +2823,184 @@ p.description
 
 .contacts-map
   position: relative
-  margin-bottom: 100px
+  margin-top: 50px
   +media-breakpoint-down(md)
     margin-top: 49px
     margin-bottom: 49px
   +media-breakpoint-down(xs)
     margin-top: 25px
     margin-bottom: 0
+
+.employees-wrapper
+  position: relative
+  overflow: hidden
+  &::after
+    content: ''
+    position: absolute
+    bottom: -200px
+    right: 0
+    width: 808px
+    height: 1108px
+    background-image: url(../images/dest/contacts-page-bg.png)
+    background-size: cover
+    background-position: bottom
+    z-index: -2
+    +media-breakpoint-down(sm)
+      display: none
+
+.employees-item
+  position: relative
+  margin-bottom: 80px
+  +media-breakpoint-down(xs)
+    margin-bottom: 50px
+  &:last-child
+    margin-bottom: 55px
+    +media-breakpoint-down(xs)
+      margin-bottom: 25px
+  .slider__prev,
+  .slider__next
+    top: unset
+    bottom: 21%
+    +media-breakpoint-down(lg)
+      bottom: -17px
+  .slider__prev
+    left: -80px
+    +media-breakpoint-down(lg)
+      left: 0
+  .slider__next
+    right: -80px
+    +media-breakpoint-down(lg)
+      right: 0
+
+.employees-title
+  position: relative
+  font-size: 36px
+  font-weight: 700
+  line-height: 50px
+  margin-bottom: 20px
+  +media-breakpoint-down(xs)
+    font-size: 24px
+    line-height: 33px
+
+.employees-phones
+  position: relative
+  display: flex
+  align-items: center
+  &__icon
+    position: relative
+    height: 40px
+    line-height: 40px
+    text-align: center
+    flex: 0 0 40px
+    background: linear-gradient(180deg, #FFC676 0%, #F28F48 100%)
+    border-radius: 50%
+    box-shadow: 0px 20px 50px rgba(252, 182, 105, 0.3)
+    margin-right: 20px
+  &__item
+    span
+      display: block
+      font-weight: 600
+      color: #D1D1D1
+      line-height: 22px
+      margin-bottom: 6px
+  &__link
+    color: #fff
+    font-weight: 700
+    font-size: 18px
+    transition: $trs
+    &:hover
+      text-decoration: none
+      color: $accent
+
+.employees-slider
+  position: relative
+  margin: 100px -15px 0
+  +media-breakpoint-down(xs)
+    margin: 50px -15px 0
+  &__progress
+    margin-top: 49px
+  .slick-track
+    margin-left: 0
+.employees-slide
+  position: relative
+  margin: 0 15px
+  outline: none
+  padding-bottom: 4px
+  &__info
+    position: relative
+    background: #1e1e1e
+    padding: 25px 15px 27px 20px
+    border: 1px solid rgba(255, 255, 255, 0.3)
+    border-radius: 6px
+    z-index: 1
+    +media-breakpoint-down(xs)
+      max-width: 270px
+      margin: 0 auto
+  &__image
+    position: relative
+    z-index: -1
+    margin-bottom: -35px
+    &::before
+      content: ''
+      position: absolute
+      top: -20px
+      left: 55%
+      transform: translateX(-50%)
+      width: 280px
+      height: 280px
+      background-image: url(../images/dest/blur.png)
+      background-size: cover
+      background-position: center
+      background-repeat: no-repeat
+      z-index: -1
+    img
+      max-width: 100%
+      max-height: 229px
+      margin: 0 auto
+      +media-breakpoint-down(lg)
+        min-height: 229px
+        object-fit: cover
+
+.employees-name
+  font-size: 18px
+  font-weight: 700
+  line-height: 23px
+  height: 45px
+  overflow: hidden
+.employees-position
+  display: block
+  margin-top: 13px
+  margin-bottom: 13px
+  font-weight: 500
+  font-size: 12px
+  line-height: 16px
+  max-width: 80%
+  height: 32px
+  overflow: hidden
+
+.employees-contacts
+  margin: 0
+  padding: 0
+  list-style-type: none
+  svg
+    fill: $accent
+    margin-right: 8px
+  li
+    margin-bottom: 7px
+    max-width: 100%
+    white-space: nowrap
+    overflow: hidden
+    &:last-child
+      margin-bottom: 0
+    a
+      color: #fff
+      font-weight: 700
+      font-size: 14px
+      line-height: 17px
+      display: inline-block
+      transition: $trs
+      &:hover
+        color: $accent
+        text-decoration: none
+
 
