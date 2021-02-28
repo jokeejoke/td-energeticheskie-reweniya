@@ -469,8 +469,8 @@ p.description
     position: absolute
     top: -45px
     right: -45px
-    +media-breakpoint-down(xs)
-      right: -15px
+    +media-breakpoint-down(md)
+      right: -7px
   &__group
     margin-top: 10px
     &.flex
@@ -2216,6 +2216,9 @@ p.description
         padding-left: 5px
       +media-breakpoint-down(sm)
         padding-top: 30px
+      +media-breakpoint-down(xs)
+        font-size: 14px
+        line-height: 22px
       ul
         margin: 0 0 7px 0
         padding: 0
@@ -3002,5 +3005,284 @@ p.description
       &:hover
         color: $accent
         text-decoration: none
+
+.proivod
+  &-wrapper
+    position: relative
+    margin-top: 90px
+    +media-breakpoint-down(sm)
+      margin-top: 50px
+  &-title
+    font-weight: 700
+    font-size: 36px
+    line-height: 50px
+    margin-bottom: 35px
+    +media-breakpoint-down(sm)
+      margin-bottom: 20px
+    +media-breakpoint-down(xs)
+      font-size: 24px
+      line-height: 33px
+  &-text
+    position: relative
+    line-height: 25px
+    margin-bottom: 63px
+    +media-breakpoint-down(sm)
+      margin-bottom: 50px
+    +media-breakpoint-down(xs)
+      margin-bottom: 30px
+    p
+      margin-bottom: 20px
+  &-table
+    position: relative
+    &__title
+      font-weight: 700
+      font-size: 24px
+      line-height: 37px
+      margin-bottom: 30px
+      +media-breakpoint-down(xs)
+        font-size: 18px
+        line-height: 25px
+        margin-bottom: 15px
+  &-labels
+    position: relative
+    background: #1e1e1e
+    padding: 40px 30px
+    border-radius: 6px
+    +media-breakpoint-down(xs)
+      background: transparent
+      padding: 0
+    &__item
+      position: relative
+      display: flex
+      margin-bottom: 15px
+      +media-breakpoint-down(xs)
+        font-size: 14px
+        line-height: 22px
+      &:last-child
+        margin-bottom: 0
+      span
+        display: inline-block
+        flex: 0 0 40px
+        margin-right: 25px
+  &-info
+    position: relative
+    padding-top: 50px
+    padding-left: 70px
+    +media-breakpoint-down(lg)
+      padding-left: 0
+    +media-breakpoint-down(sm)
+      text-align: center
+    +media-breakpoint-down(xs)
+      padding-top: 30px
+    img
+      max-width: 100%
+      height: auto
+      margin-bottom: 55px
+      +media-breakpoint-down(lg)
+        margin-bottom: 15px
+      +media-breakpoint-down(sm)
+        margin-bottom: 50px
+      +media-breakpoint-down(xs)
+        margin-bottom: 30px
+    p
+      line-height: 25px
+      font-weight: 500
+      font-size: 15px
+      +media-breakpoint-down(sm)
+        text-align: left
+      +media-breakpoint-down(xs)
+        font-size: 14px
+        line-height: 22px
+  &-btn
+    display: inline-block
+    margin-top: 30px
+  &-accordion
+    position: relative
+    margin-top: 154px
+    +media-breakpoint-down(sm)
+      //margin-top: 80px
+      margin: 80px -15px 0
+
+.questionnaires
+  position: relative
+  &-wrapper
+    position: relative
+    background: #1E1E1E
+    padding: 40px 60px 85px
+    border-radius: 6px
+    margin: 100px 0
+    +media-breakpoint-down(sm)
+      padding: 25px 15px 0
+    .contacts__item
+      +media-breakpoint-down(md)
+        display: none
+    .form
+      +media-breakpoint-down(xs)
+        margin: 0 -15px
+  &-title
+    text-align: center
+    font-weight: 700
+    font-size: 36px
+    line-height: 50px
+    margin-bottom: 30px
+    +media-breakpoint-down(sm)
+      margin-bottom: 23px
+    +media-breakpoint-down(xs)
+      font-size: 24px
+      line-height: 33px
+  &-list
+    margin: 0
+    padding: 0
+    list-style: none
+    li
+      margin-bottom: 30px
+      +media-breakpoint-down(xs)
+        margin-bottom: 20px
+      svg
+        fill: $accent
+        margin-right: 30px
+        +media-breakpoint-down(xs)
+          margin-right: 10px
+      a
+        color: $white
+        display: flex
+        font-size: 18px
+        line-height: 25px
+        transition: $trs
+        +media-breakpoint-down(xs)
+          font-size: 16px
+          line-height: 22px
+        &:hover
+          text-decoration: none
+          color: $accent
+        span
+          display: block
+          margin-top: 3px
+  &-text
+    margin: 59px 0
+    +media-breakpoint-down(md)
+      margin: 30px 0
+    +media-breakpoint-down(xs)
+      margin: 40px 0
+      line-height: 22px
+  &-form-text
+    margin-bottom: 78px
+    +media-breakpoint-down(md)
+      margin-bottom: 40px
+    &__title
+      font-size: 24px
+      font-weight: 700
+      margin-bottom: 20px
+      +media-breakpoint-down(md)
+        margin-bottom: 15px
+      +media-breakpoint-down(xs)
+        font-size: 22px
+    &__descr
+      display: block
+      line-height: 25px
+      +media-breakpoint-down(xs)
+        line-height: 22px
+
+.accordion
+  position: relative
+  &__item
+    position: relative
+    &:first-child
+      .accordion__header
+        border-radius: 6px 6px 0 0
+        +media-breakpoint-down(sm)
+          border-radius: 0
+    &:last-child
+      .accordion__header
+        border-bottom: none
+        border-radius: 0 0 6px 6px
+        +media-breakpoint-down(sm)
+          border-radius: 0
+        &.accordion__header-active
+          border-radius: 0
+      .accordion__content
+        border-bottom: none
+  &__header
+    position: relative
+    padding: 31px 40px
+    background: #1E1E1E
+    font-size: 24px
+    line-height: 37px
+    font-weight: 700
+    cursor: pointer
+    transition: $trs
+    border-bottom: 1px solid rgba(255,255,255,.5)
+    +media-breakpoint-down(xs)
+      padding: 30px 70px 30px 20px
+      font-size: 14px
+      line-height: 22px
+    &::after
+      content: ''
+      position: absolute
+      top: 50%
+      right: 40px
+      transform: translateY(-50%)
+      width: 22px
+      height: 22px
+      background-image: url(../images/dest/arrow-down.png)
+      background-size: cover
+      transition: $trs
+      +media-breakpoint-down(xs)
+        width: 11px
+        height: 11px
+        right: 35px
+    &-active
+      border-bottom: none
+      &::after
+        transform: translateY(-50%) rotate(180deg)
+  &__body
+    position: relative
+    max-height: 0
+    overflow: hidden
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1)
+    &.accordion__body-active
+      max-height: 100%
+      transition: max-height 1s ease-in-out
+  &__content
+    position: relative
+    background: #1E1E1E
+    padding: 0 40px 44px
+    line-height: 25px
+    border-bottom: 1px solid rgba(255,255,255,.5)
+    overflow: hidden
+    +media-breakpoint-down(xs)
+      padding: 0 20px 35px
+      font-size: 14px
+      line-height: 22px
+    ul
+      margin: 0 0 29px
+      padding: 0
+      list-style: none
+    p
+      margin-bottom: 17px
+      a
+        color: $accent
+        border-bottom: 1px dashed $accent
+        &:hover
+          text-decoration: none
+          border-bottom: none
+    .footing-table
+      table
+        width: 100%
+        border: none
+        tr
+          td
+            text-align: left
+            border-right: none
+            padding: 12px 0
+            &:last-child
+              padding-left: 70px
+        th
+          border-right: none
+          padding: 12px 0
+          font-weight: 700
+          &:last-child
+            padding-left: 70px
+
 
 
