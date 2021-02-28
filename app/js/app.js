@@ -622,7 +622,10 @@ document.addEventListener("DOMContentLoaded", function() {
 	function hiddenScrollBar() {
 		$hiddenArrows = document.querySelectorAll('.slick-arrow.slick-hidden')
 		$hiddenArrows.forEach(a => {
-			a.previousElementSibling.style.display = 'none'
+			if (a.previousElementSibling.classList.contains('progress')) {
+				a.previousElementSibling.style.display = 'none'
+				console.log('contains');
+			}
 		})
 	}
 
