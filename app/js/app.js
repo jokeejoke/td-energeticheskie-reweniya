@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const $partnersSlider = $('.partners-slider');
 	
 	$partnersSlider.slick({
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
 		speed: 400,
 		prevArrow: ".partners-slider__prev",
@@ -623,8 +623,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		$hiddenArrows = document.querySelectorAll('.slick-arrow.slick-hidden')
 		$hiddenArrows.forEach(a => {
 			if (a.previousElementSibling.classList.contains('progress')) {
-				a.previousElementSibling.style.display = 'none'
-				console.log('contains');
+				a.previousElementSibling.style.display = 'none';
 			}
 		})
 	}
