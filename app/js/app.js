@@ -73,8 +73,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	function initScrollBar(sliderSelector, scrollBarSelector) {
 		
-
-		
 		const $slider = $(sliderSelector);
 		const $progressBar = $(scrollBarSelector);
 		const $progressBarLabel = $( '.slider__label' );
@@ -225,35 +223,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		rtl: true,
 		arrows: false
 	});
-
-	// Inner catalog content slider
-	const $innerCatalogSlider = $('.inner-catalog-content-slider')
-	$innerCatalogSlider.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-		//currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-		if(slick.slideCount <= 2){
-			return;
-		}
-		
-		var i = (currentSlide ? currentSlide : 0) + 1;
-		$('.inner-catalog-content-slider__counter').text(i + '/' + (slick.$dots[0].children.length));
-	});
-	$innerCatalogSlider.slick({
-		slidesToShow: 2,
-		slidesToScroll: 1,
-		adaptiveHeight: true,
-		infinite: false,
-		prevArrow: ".inner-catalog-content-slider__prev",
-		nextArrow: ".inner-catalog-content-slider__next",
-		dots: true,
-		responsive: [
-			{
-				breakpoint: 576,
-				settings: {
-					slidesToShow: 1
-				}
-			}
-		]
-	});
+ 
 
 	// Sales Slider
 	const $employeesSlider = $('.sales-slider');
@@ -355,12 +325,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// Pure JS Function
 	function phoneMask() {
-		const $phoneMask = document.querySelector('.phone')
+		const $phoneMask = document.querySelectorAll('.phone')
 		if ($phoneMask) {
-			IMask(
-				$phoneMask, {
-					mask: '+{7}(000)000-00-00'
-			});
+			$phoneMask.forEach(phone => {
+				IMask(
+					phone, {
+						mask: '+{7}(000)000-00-00'
+				});
+			})
 		}
 	}
 
@@ -418,7 +390,7 @@ document.addEventListener("DOMContentLoaded", function() {
 					})
 					this.classList.add('active')
 				}
-				e.preventDefault()
+				//e.preventDefault()
 			})
 		})
 	}
@@ -628,9 +600,16 @@ document.addEventListener("DOMContentLoaded", function() {
 		})
 	}
 
+	function catalogSliderHeight() {
+		$catalogWrapper = document.querySelector('.inner-catalog-content-slider')
+		if($catalogWrapper) {
+			$catalogWrapper.style.maxHeight = $catalogWrapper.clientHeight / 2 + 'px'
+		}
+		
+	}
+
 	if(window.innerWidth <= 576) {
 		$('.projects-slider').slick('unslick');
-		$('.inner-catalog-content-slider').slick('unslick');
 	}
 	if(window.innerWidth >= 768) {
 		fixedHeader()
@@ -664,6 +643,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	initScrollBar('.logistics-slider', '.logistics-slider__progress')
 	popupGallery('.certificates-gallery')
 	hiddenScrollBar()
+	catalogSliderHeight()
 	
 
 });

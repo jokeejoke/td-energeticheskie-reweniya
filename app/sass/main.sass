@@ -1181,8 +1181,6 @@ p.description
           +media-breakpoint-down(xs)
             margin-bottom: 15px
     .projects-thumbs
-      .slick-list
-        padding-top: 10px
       &__next,
       &__prev
         bottom: 180px
@@ -2092,12 +2090,11 @@ p.description
       margin-bottom: 25px
   &-slider
     position: relative
-    .slick-dots
-      display: none !important
-    &__item
-      &:active,
-      &:focus
-        outline: none
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    +media-breakpoint-down(xs)
+      max-height: 100% !important
     &__link
       display: block
       color: $textcolor
