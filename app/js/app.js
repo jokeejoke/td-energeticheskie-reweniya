@@ -14,6 +14,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		e.preventDefault()
 	})
 
+	$(".scroll-to").on("click", function(e) {
+		$('body,html').animate({scrollTop: 770}, 350)
+		e.preventDefault()
+	})
+
 	// Magnific Popup
 	function popupGallery(selector) {
 		$(selector).magnificPopup({
@@ -603,9 +608,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	function catalogSliderHeight() {
 		$catalogWrapper = document.querySelector('.inner-catalog-content-slider')
 		if($catalogWrapper) {
-			$catalogWrapper.style.maxHeight = $catalogWrapper.clientHeight / 2 + 'px'
+			$catalogWrapper.style.maxHeight = ($catalogWrapper.clientHeight / 2) + 30 + 'px'
 		}
-		
 	}
 
 	if(window.innerWidth <= 576) {
